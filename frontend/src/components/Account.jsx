@@ -1,7 +1,7 @@
 import {Nav} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {useAuth} from "../contexts/AuthContext";
-import {PersonCircle, BoxArrowRight} from "react-bootstrap-icons";
+import {BoxArrowRight} from "react-bootstrap-icons";
 import Loading from "./Loading";
 
 const Account = () => {
@@ -11,11 +11,6 @@ const Account = () => {
             {loading && <Loading/>}
             {loginStorageData ? (
                 <>
-                    <Nav className="ms-auto my-2 my-lg-0" navbarScroll>
-                        <NavLink to={"/dashboard"} className={"nav-link"}>
-                            <PersonCircle size={22} className="pb-1"/> {loginStorageData.user.name}
-                        </NavLink>
-                    </Nav>
                     <Nav className="my-2 my-lg-0" navbarScroll onClick={userLogout}>
                         <NavLink className={"nav-link"}>
                             <BoxArrowRight className="pb-1" size={22}/>

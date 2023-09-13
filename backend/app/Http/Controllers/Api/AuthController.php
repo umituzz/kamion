@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 /**
  * Class AuthController
@@ -56,6 +57,11 @@ class AuthController extends BaseController
     public function login(LoginRequest $request)
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
+//            throw ValidationException::withMessages([
+//                'email' => [
+//                    __('auth.failed')
+//                ]
+//            ]);
             return response()->json([
                 'errors' => __('The provided credentials are incorrect!')
             ]);
