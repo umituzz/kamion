@@ -2,6 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const useOrderList = (url) => {
+	const http = axios.create({
+		baseURL: 'http://localhost/api',
+		headers: {
+			'X-Requested-With': 'XMLHttpRequest',
+		},
+		withCredentials: true
+	});
+
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
 	const [orders, setOrders] = useState([]);
@@ -13,9 +21,7 @@ const useOrderList = (url) => {
 		(async () => {
 			setLoading(true);
 			try {
-				const response = await axios.get(url);
-
-				console.log("here", response);
+				const response = await http.get(url);
 
 				if (response.data.data.data) {
 					setOrders([...response.data.data.data.data]);
