@@ -1,0 +1,38 @@
+Backend Apileri
+Laravel kullanılarak yazılacak olan servisler;
+
+1- Yükveren register servisi alacağı parametreler
+
+- İsim
+- Soyisin
+- Email
+- Password
+
+2- Yükveren login servisi alacağı parametreler
+
+- Email
+- Password
+
+3- Sipariş oluşurma servisi
+
+- Yük Tipi
+- Emtia Değeri
+- Kalkış Noktası İli
+- Varış Noktası İli
+
+4 -Yük Listeleme servisi
+
+- Yük Tipi
+- Emtia Değeri
+- Kalkış Noktası İli
+- Varış Noktası İli
+
+yukarıdaki param’lara göre filtrelenebilecek.
+
+Front End İçin;
+
+tasarım tamamen size ait. Projede NextJs, redux, atomic design yada herhangi bir pattern kullanarak geliştirebiliseniz çok seviniriz.
+
+- Register ekranı
+- Login ekranı
+- Yük listeleme ekranı
