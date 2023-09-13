@@ -21,7 +21,7 @@ class UserCollection extends ResourceCollection
     public function toArray(Request $request): array
     {
         return [
-//            'total' => $this->resource->count(),
+            'total' => $this->resource->count(),
             'data' => $this->resource
         ];
     }

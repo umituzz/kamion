@@ -35,7 +35,8 @@ class AuthController extends BaseController
     public function register(RegisterRequest $request)
     {
         $data = $this->userRepository->create([
-            'name' => $request->input('name'),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password'))
         ]);
