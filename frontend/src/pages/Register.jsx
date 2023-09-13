@@ -5,11 +5,11 @@ import {Button, Form} from "react-bootstrap";
 import {useAuth} from "../contexts/AuthContext";
 
 const RegisterForm = () => {
-    const [name, setName] = useState("");
+    const [first_name, setFirstName] = useState("");
+    const [last_name, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [password_confirmation, setConfirmPassword] = useState("");
-    const [agreement, setAgreement] = useState(true);
     const [error, setError] = useState();
     const {userRegister, vError, loading} = useAuth();
 
@@ -17,7 +17,7 @@ const RegisterForm = () => {
         event.preventDefault();
         if (password !== password_confirmation) return setError("Password didn't match");
         try {
-            await userRegister(name, email, password, password_confirmation, agreement);
+            await userRegister(first_name, last_name, email, password, password_confirmation);
         } catch (error) {
             console.log(error);
         }
@@ -26,16 +26,24 @@ const RegisterForm = () => {
     return (
         <Col md={8}>
             <div className="mb-4">
-                <h3>User Registration</h3>
+                <h3>Registration</h3>
             </div>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label className="text-center">
-                        Full Name <span className="text-danger">*</span>
+                        First Name <span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Control type="text" name="name" placeholder="Enter Name" required min={1} value={name}
-                                  onChange={(event) => setName(event.target.value)}/>
-                    {vError && <p className="text-danger">{vError.name}</p>}
+                    <Form.Control type="text" name="first_name" placeholder="Enter First Name" required min={1} value={first_name}
+                                  onChange={(event) => setFirstName(event.target.value)}/>
+                    {vError && <p className="text-danger">{vError.first_name}</p>}
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Label className="text-center">
+                        Last Name <span className="text-danger">*</span>
+                    </Form.Label>
+                    <Form.Control type="text" name="last_name" placeholder="Enter Last Name" required min={1} value={last_name}
+                                  onChange={(event) => setLastName(event.target.value)}/>
+                    {vError && <p className="text-danger">{vError.last_name}</p>}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label className="text-center">
@@ -66,12 +74,6 @@ const RegisterForm = () => {
                     />
                     {vError && <p className="text-danger">{vError.password_confirmation}</p>}
                 </Form.Group>
-                <Form.Check className="mb-3"
-                            checked={agreement}
-                            name="agreement" label="I agree to the Terms and Conditions *"
-                            onChange={(event) => setAgreement(event.target.checked)}
-                />
-                {vError && <p className="text-danger">{vError.agreement}</p>}
                 <Button variant="outline-primary" type="submit"
                         disabled={loading}
                 >

@@ -21,7 +21,7 @@ const Login = () => {
     return (
         <Col md={8}>
             <div className="mb-4">
-                <h3>User Login</h3>
+                <h3>Login</h3>
             </div>
             <Form onSubmit={handleSubmit}>
                 {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
