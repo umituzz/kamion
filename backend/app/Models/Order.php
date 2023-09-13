@@ -13,5 +13,10 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'load_type',
+        'commodity',
+        'departure_city',
+        'arrival_city',
+    ];
 }

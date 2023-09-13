@@ -19,10 +19,10 @@ class BaseController extends Controller
      * @param $message
      * @return JsonResponse
      */
-    public function ok($data, $message): JsonResponse
+    public function ok($data, $message, $status): JsonResponse
     {
         $response = [
-            'status' => Response::HTTP_OK,
+            'status' => $status,
             'message' => $message,
             'data' => $data
         ];

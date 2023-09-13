@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Contracts\OrderRepositoryInterface;
+use App\Http\Resources\OrderResource;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /**
  * Class OrdersController
@@ -21,6 +24,20 @@ class OrdersController extends BaseController
     {
         $data = $this->orderRepository->getCollection();
 
-        return $this->ok($data, __('Order List'));
+        return $this->ok($data, __('Order List'), Response::HTTP_OK);
+    }
+
+    public function store(Request $request)
+    {
+        $order = $this->orderRepository->create([
+            'load_type' => $request->input('load_type'),
+            'commodity' => $request->input('commodity'),
+            'departure_city' => $request->input('departure_city'),
+            'arrival_city' => $request->input('arrival_city'),
+        ]);
+
+        $data = new OrderResource($order);
+
+        return $this->ok($data, __('Order Created'), Response::HTTP_CREATED);
     }
 }
