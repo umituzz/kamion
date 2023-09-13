@@ -74,21 +74,29 @@
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
 				{
-					"name": "Logout",
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|7othAubf7UMb6XcAHLZ86unNogB8GIBlDSLfganE79b79c6d",
+									"value": "1|Anaf8D3GWnCo08NyZCNNkc2eUJhAw9m9SLFcT0pz4a0653ae",
 									"type": "string"
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -100,14 +108,53 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/api/logout",
+							"raw": "http://localhost/api/orders",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
-								"logout"
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|Anaf8D3GWnCo08NyZCNNkc2eUJhAw9m9SLFcT0pz4a0653ae",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"load_type\": \"test\",\r\n    \"commodity\": 2000,\r\n    \"departure_city\": \"İstanbul\",\r\n    \"arrival_city\": \"Gaziantep\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/orders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"orders",
+								""
 							]
 						}
 					},
