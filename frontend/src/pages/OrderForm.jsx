@@ -2,7 +2,7 @@ import { Alert, Button, Form, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useState } from "react";
-const Order = () => {
+const OrderForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { userLogin, errorMessage, vError, loading } = useAuth();
@@ -51,4 +51,4 @@ const Order = () => {
     );
 };
 
-export default Order;
+export default OrderForm;
