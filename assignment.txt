@@ -13,7 +13,7 @@ Laravel kullanılarak yazılacak olan servisler;
 - Email
 - Password
 
-3- Sipariş oluşurma servisi
+3- Sipariş oluşturma servisi
 
 - Yük Tipi
 - Emtia Değeri
