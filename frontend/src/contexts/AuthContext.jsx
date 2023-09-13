@@ -9,6 +9,15 @@ export const useAuth = () => {
 };
 
 const AuthProvider = ({children}) => {
+
+    const http = axios.create({
+        baseURL: 'http://localhost/api',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        withCredentials: true
+    });
+
     const [loading, setLoading] = useState(false);
     const [currentUser, setCurrentUser] = useState();
     const [loginStorageData, setLoginStorageData] = useState("");
@@ -31,7 +40,7 @@ const AuthProvider = ({children}) => {
         resetError();
 
         try {
-            const response = await axios.post("http://localhost/api/register", registerData);
+            const response = await http.post("/register", registerData);
             setCurrentUser(response.data);
             localStorage.setItem("userLoginData", JSON.stringify(response.data));
         } catch (error) {
@@ -48,7 +57,7 @@ const AuthProvider = ({children}) => {
         const loginData = {email, password};
         resetError();
         try {
-            const response = await axios.post("http://localhost/api/login", loginData);
+            const response = await http.post("/login", loginData);
             if (response.data.status === 200) {
                 setCurrentUser(response.data);
                 localStorage.setItem("userLoginData", JSON.stringify(response.data));
@@ -68,7 +77,7 @@ const AuthProvider = ({children}) => {
         // await new Promise((r) => setTimeout(r, 100));
         resetError();
         try {
-            const response = await axios.post("http://localhost/api/logout", null, {
+            const response = await http.post("/logout", null, {
                 headers: {Authorization: `Bearer ${loginStorageData.token}`},
             });
             if (response.data.status === 200) {

@@ -57,11 +57,6 @@ class AuthController extends BaseController
     public function login(LoginRequest $request)
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
-//            throw ValidationException::withMessages([
-//                'email' => [
-//                    __('auth.failed')
-//                ]
-//            ]);
             return response()->json([
                 'errors' => __('The provided credentials are incorrect!')
             ]);
@@ -74,7 +69,7 @@ class AuthController extends BaseController
         return response()->json([
             'status' => Response::HTTP_OK,
             'user' => $user,
-//            'token' => $user->createToken('userToken')->plainTextToken
+            'token' => $user->createToken('userToken')->plainTextToken
         ]);
     }
 

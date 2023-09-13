@@ -1,5 +1,4 @@
 import {Routes, Route} from "react-router-dom";
-
 import Menubar from "./Menubar";
 import Footer from "./Footer";
 import Login from "../pages/Login";
