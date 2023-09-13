@@ -25,8 +25,8 @@ const AuthProvider = ({children}) => {
     };
 
     // User registration function
-    const userRegister = async (name, email, password, password_confirmation, agreement) => {
-        const registerData = {name, email, password, password_confirmation, agreement};
+    const userRegister = async (first_name, last_name, email, password, password_confirmation) => {
+        const registerData = {first_name, last_name, email, password, password_confirmation};
 
         resetError();
 
