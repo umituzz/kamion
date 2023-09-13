@@ -16,6 +16,7 @@ const RegisterForm = () => {
     async function handleSubmit(event) {
         event.preventDefault();
         if (password !== password_confirmation) return setError("Password didn't match");
+
         try {
             await userRegister(first_name, last_name, email, password, password_confirmation);
         } catch (error) {
