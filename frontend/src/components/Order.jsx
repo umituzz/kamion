@@ -1,9 +1,9 @@
-import { Nav, Card, Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 
 const Order = ({ orders }) => {
 	return (
-		<Col md={10}>
+		<Col md={12}>
 			<Table responsive>
 				<thead>
 				<tr>
