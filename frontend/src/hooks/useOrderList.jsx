@@ -14,11 +14,14 @@ const useOrderList = (url) => {
 			setLoading(true);
 			try {
 				const response = await axios.get(url);
-				if (response.data) {
-					setOrders([...response.data.orders]);
-					setLastPage(response.data.lastPage);
-					setPage(response.data.page);
-					setTotal(response.data.total);
+
+				console.log("here", response);
+
+				if (response.data.data.data) {
+					setOrders([...response.data.data.data.data]);
+					setLastPage(response.data.data.data.last_page);
+					setPage(response.data.data.data.current_page);
+					setTotal(response.data.data.data.total);
 				}
 			} catch (error) {
 				console.error(error);
