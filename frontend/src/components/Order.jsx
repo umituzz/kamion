@@ -1,36 +1,35 @@
 import { Nav, Card, Col, Row } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
 
 const Order = ({ orders }) => {
 	return (
 		<Col md={10}>
-			<Row xs={1} md={3} className="g-4">
+			<Table responsive>
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>Load Type</th>
+					<th>commodity</th>
+					<th>departure_city</th>
+					<th>arrival_city</th>
+					<th>created_at</th>
+				</tr>
+				</thead>
+				<tbody>
 				{orders.map((order) => {
 					return (
-						<Col key={order.id} className="d-flex flex-row flex-wrap">
-							<Card>
-								<Card.Body>
-									<Card.Title>{order.load_type}</Card.Title>
-									{/*<Card.Subtitle className="my-2 text-muted">*/}
-									{/*	<p className="my-0">*/}
-									{/*		<small>Author: {article.author.split(",")[0]}</small>*/}
-									{/*	</p>*/}
-									{/*	<p className="my-1">*/}
-									{/*		<small>Published: {new Date(article.published_at).toDateString()}</small>*/}
-									{/*	</p>*/}
-									{/*	<p className="my-0">*/}
-									{/*		<small>Category: {article.category}</small>*/}
-									{/*	</p>*/}
-									{/*</Card.Subtitle>*/}
-									{/*<Card.Text>{article.description.substr(0, 100) + ` ...more`}</Card.Text>*/}
-									{/*<Nav.Link href={article.url} target="_blank">*/}
-									{/*	Click to read full news from-<strong>{` ${article.source_name}`}</strong>*/}
-									{/*</Nav.Link>*/}
-								</Card.Body>
-							</Card>
-						</Col>
-					);
+						<tr key={order.id}>
+							<td>{order.id}</td>
+							<td>{order.load_type}</td>
+							<td>{order.commodity}</td>
+							<td>{order.departure_city}</td>
+							<td>{order.arrival_city}</td>
+							<td>{order.created_at}</td>
+						</tr>
+					)
 				})}
-			</Row>
+				</tbody>
+			</Table>
 		</Col>
 	);
 };

@@ -1,7 +1,6 @@
 import {Dropdown, InputGroup, Row, FormControl, DropdownButton, Container, Button, ButtonGroup} from "react-bootstrap";
 import {ArrowLeftSquareFill, ArrowRightSquareFill} from "react-bootstrap-icons";
 import {useEffect, useState} from "react";
-import Loading from "../components/Loading";
 import useOrderList from "../hooks/useOrderList";
 import Order from "../components/Order";
 
@@ -37,7 +36,6 @@ function Home() {
 
     return (
         <Container className="mt-2 minHeight">
-            {loading && !searchValue && <Loading/>}
             <Row>
                 <InputGroup className="my-3">
                     <FormControl type="search" placeholder="Search" value={searchValue}

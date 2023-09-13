@@ -24,6 +24,7 @@ class OrderResource extends JsonResource
             'commodity' => $this->commodity,
             'departure_city' => $this->departure_city,
             'arrival_city' => $this->arrival_city,
+            'created_at' => $this->created_at->diffForHumans(),
         ];
     }
 }
