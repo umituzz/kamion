@@ -1,4 +1,4 @@
-import { Col } from "react-bootstrap";
+import {Col} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 
 const Order = ({ orders }) => {
@@ -9,10 +9,10 @@ const Order = ({ orders }) => {
 				<tr>
 					<th>#</th>
 					<th>Load Type</th>
-					<th>commodity</th>
-					<th>departure_city</th>
-					<th>arrival_city</th>
-					<th>created_at</th>
+					<th>Commodity</th>
+					<th>Departure City</th>
+					<th>Arrival City</th>
+					<th>Created At</th>
 				</tr>
 				</thead>
 				<tbody>
