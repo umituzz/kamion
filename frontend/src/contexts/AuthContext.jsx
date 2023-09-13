@@ -82,40 +82,6 @@ const AuthProvider = ({children}) => {
         setLoading(false);
     };
 
-    // User password recovery mail sending method
-    const forgotPassword = async (email) => {
-        resetError();
-        try {
-            const response = await axios.post("http://localhost/api/forgotPassword", {email});
-            console.log(response);
-            if (response.data.status) {
-                setSuccessMessage(response.data.status);
-            } else {
-                setErrorMessage(response.data.errors.email);
-            }
-        } catch (error) {
-            setErrorMessage(error.response.data.errors);
-        }
-        setLoading(false);
-    };
-
-    // User password reset method
-    const resetPassword = async (email, token, password, password_confirmation) => {
-        const resetData = {email, token, password, password_confirmation};
-        resetError();
-        try {
-            const response = await axios.post("http://localhost/api/resetPassword", resetData);
-            if (response.data.status) {
-                setSuccessMessage(response.data.status);
-            } else {
-                setErrorMessage("Wrong credentials or something went wrong!");
-            }
-        } catch (error) {
-            setErrorMessage(error.response.data.errors);
-        }
-        setLoading(false);
-    };
-
     useEffect(() => {
         setLoginStorageData(currentUser || JSON.parse(localStorage.getItem("userLoginData")));
     }, [currentUser]);
@@ -126,8 +92,6 @@ const AuthProvider = ({children}) => {
         userLogin,
         userRegister,
         userLogout,
-        forgotPassword,
-        resetPassword,
         vError,
         errorMessage,
         successMessage,

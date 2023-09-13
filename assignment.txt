@@ -4,7 +4,7 @@ Laravel kullanılarak yazılacak olan servisler;
 1- Yükveren register servisi alacağı parametreler
 
 - İsim
-- Soyisin
+- Soyisim
 - Email
 - Password
 

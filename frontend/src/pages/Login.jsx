@@ -41,11 +41,6 @@ const Login = () => {
                 </Form.Group>
                 <div className="d-flex align-items-center">
                     <Form.Check className="mb-3" checked={remember} label="Remember Me" onChange={(event) => setRemember(event.target.value)} />
-                    <Form.Label className="ms-auto mb-3">
-                        <NavLink to={"/forgot-password"} className={"text-primary fw-bold text-decoration-none"}>
-                            Forgot Password?
-                        </NavLink>
-                    </Form.Label>
                 </div>
                 <Button variant="outline-primary" type="submit" disabled={loading}>
                     Login
