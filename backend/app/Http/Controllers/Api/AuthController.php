@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Contracts\UserRepositoryInterface;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Resources\OrderCollection;
-use App\Models\Order;
+use App\Contracts\OrderRepositoryInterface;
 
 /**
  * Class OrdersController
@@ -11,10 +10,17 @@ use App\Models\Order;
  */
 class OrdersController extends BaseController
 {
+    private OrderRepositoryInterface $orderRepository;
+
+    public function __construct(OrderRepositoryInterface $orderRepository)
+    {
+        $this->orderRepository = $orderRepository;
+    }
+
     public function index()
     {
-        $orders = Order::all();
+        $data = $this->orderRepository->getCollection();
 
-        return new OrderCollection($orders);
+        return $this->ok($data, __('Order List'));
     }
 }
