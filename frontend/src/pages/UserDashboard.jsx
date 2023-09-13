@@ -1,13 +1,11 @@
-import { Button, Col, Container, Row, Form } from "react-bootstrap";
+import { Col, Container, Row, Form } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
-import useCustomization from "../hooks/useCustomization";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "../components/Loading";
 
 const UserDashboard = () => {
 	const { loginStorageData, userLogout } = useAuth();
-	const { sources, authors, categories } = useCustomization();
 	const [loading, setLoading] = useState(false);
 	const userId = loginStorageData.user.id;
 

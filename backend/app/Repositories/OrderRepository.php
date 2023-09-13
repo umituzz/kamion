@@ -23,8 +23,9 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 
     public function getCollection()
     {
-        $data = $this->get();
+        $data = $this->order->paginate(10);
 
         return new OrderCollection($data);
     }
+
 }

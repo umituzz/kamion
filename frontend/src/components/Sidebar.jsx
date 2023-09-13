@@ -40,18 +40,6 @@ const Sidebar = ({ selectedSources, selectedDate, selectedCategory }) => {
 								);
 							})}
 					</DropdownButton>
-					<h5 className="pt-3">Main Sources</h5>
-					<DropdownButton as={InputGroup.Append} variant="outline-secondary" title="Choose Sources  " onSelect={handleSourceChange}>
-						<Dropdown.Item eventKey="">All Sources</Dropdown.Item>
-						{sources &&
-							sources.map((source, index) => {
-								return (
-									<Dropdown.Item key={index} eventKey={source.api}>
-										{source.api}
-									</Dropdown.Item>
-								);
-							})}
-					</DropdownButton>
 				</div>
 			</div>
 		</Col>

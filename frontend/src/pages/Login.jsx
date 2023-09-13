@@ -6,7 +6,6 @@ import { useState } from "react";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [remember, setRemember] = useState(true);
     const { userLogin, errorMessage, vError, loading } = useAuth();
 
     const handleSubmit = async (event) => {
@@ -39,9 +38,6 @@ const Login = () => {
                     <Form.Control type="password" placeholder="Enter Password" required min={3} onChange={(event) => setPassword(event.target.value)} />
                     {vError && <p className="text-danger pt-1">{vError.password}</p>}
                 </Form.Group>
-                <div className="d-flex align-items-center">
-                    <Form.Check className="mb-3" checked={remember} label="Remember Me" onChange={(event) => setRemember(event.target.value)} />
-                </div>
                 <Button variant="outline-primary" type="submit" disabled={loading}>
                     Login
                 </Button>
