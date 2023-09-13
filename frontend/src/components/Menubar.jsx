@@ -10,8 +10,8 @@ function Menubar() {
 				<Navbar.Toggle aria-controls="navbarScroll" />
 				<Navbar.Collapse id="navbarScroll">
 					<Nav className="me-auto my-2 my-lg-0" navbarScroll>
-						<NavLink to={"/"} className={"nav-link"}>
-							Home
+						<NavLink to={"/order"} className={"nav-link"}>
+							Order
 						</NavLink>
 					</Nav>
 					<Account/>

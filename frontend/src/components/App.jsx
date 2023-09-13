@@ -9,7 +9,7 @@ import AuthCommon from "../pages/AuthCommon";
 import PrivateRoutes from "./PrivateRoutes";
 import AuthProvider from "../contexts/AuthContext";
 import PublicRoutes from "./PublicRoutes";
-import UserDashboard from "../pages/UserDashboard";
+import Order from "./Order";
 
 function App() {
     return (
@@ -19,7 +19,7 @@ function App() {
                 <Routes>
                     <Route path="/*" element={<PrivateRoutes/>}>
                         <Route path="" element={<Home/>}/>
-                        <Route path="dashboard" element={<UserDashboard/>}/>
+                        <Route path="order" element={<Order/>}/>
                     </Route>
                     <Route path="/*" element={<PublicRoutes/>}>
                         <Route path="login" element={<AuthCommon children={<Login/>}/>}/>
