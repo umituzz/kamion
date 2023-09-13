@@ -8,7 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import AuthProvider from "../contexts/AuthContext";
 import PublicRoutes from "./PublicRoutes";
 import OrderForm from "../pages/OrderForm";
-import Wrapper from "../pages/Wrapper";
+import Wrapper from "./Wrapper";
 
 function App() {
     return (
