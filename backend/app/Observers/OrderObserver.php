@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Contracts\UserRepositoryInterface;
 use App\Models\Order;
 use App\Models\User;
 use App\Notifications\NewOrderNotification;
@@ -13,20 +14,26 @@ use Illuminate\Support\Facades\Notification;
  */
 class OrderObserver
 {
+
+    private UserRepositoryInterface $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     /**
      * Handle the Order "created" event.
      */
     public function created(Order $order): void
     {
-//        $user = $this->userRepository->find($refrigerator->user_id);
-        $user = User::find(1);
+        $users = $this->userRepository->getAdmins();
 
         Notification::send(
-            $user,
+            $users,
             new NewOrderNotification([
                 'data' => [
                     'order' => $order,
-                    'user' => $user
                 ]
             ])
         );

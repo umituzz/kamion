@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * Class OrderResource
+ * Class ShipperResource
  * @parent App\Http\Resources
  */
-class OrderResource extends JsonResource
+class ShipperResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,12 +20,9 @@ class OrderResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'shipper' => new ShipperResource($this->shipper),
-            'load_type' => $this->load_type,
-            'commodity' => $this->commodity,
-            'departure_city' => $this->departure_city,
-            'arrival_city' => $this->arrival_city,
-            'created_at' => $this->created_at->diffForHumans(),
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'email' => $this->email,
         ];
     }
 }

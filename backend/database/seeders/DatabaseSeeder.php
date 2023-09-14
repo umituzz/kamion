@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             ModelHasRoleSeeder::class,
             RoleHasPermissionSeeder::class,
+            ShipperSeeder::class,
             OrderSeeder::class,
         ]);
     }

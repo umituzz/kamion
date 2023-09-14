@@ -2,18 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\Role;
+use App\Models\Shipper;
 use Illuminate\Database\Seeder;
 
-class RoleSeeder extends Seeder
+class ShipperSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Role::create(['name' => 'Admin']);
-        Role::create(['name' => 'User']);
-
+        Shipper::factory()->count(1)->create();
     }
 }

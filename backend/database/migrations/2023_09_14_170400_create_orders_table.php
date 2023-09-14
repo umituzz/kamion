@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('shipper_id')->constrained()->cascadeOnDelete();
             $table->string('load_type');
             $table->bigInteger('commodity');
             $table->string('departure_city');
