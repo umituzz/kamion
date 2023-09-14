@@ -73,4 +73,13 @@ class BaseRepository implements BaseRepositoryInterface
     {
         return $this->model->where('id', $id)->update($data);
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id)
+    {
+        return $this->model->where('id', $id)->delete();
+    }
 }

@@ -57,6 +57,8 @@ class OrdersController extends Controller
 
     public function destroy($id)
     {
+        $this->orderRepository->delete($id);
 
+        return redirect()->back();
     }
 }

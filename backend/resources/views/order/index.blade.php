@@ -47,13 +47,13 @@
                                                     </span>
                                     <span class="text">{{ __('Edit') }}</span>
                                 </a>
-                                {{--                                <a href="{{ route('orders.destroy', $order['id']) }}"--}}
-                                {{--                                   class="btn btn-danger btn-icon-split">--}}
-                                {{--                                                    <span class="icon text-white-50">--}}
-                                {{--                                                        <i class="fas fa-flag"></i>--}}
-                                {{--                                                    </span>--}}
-                                {{--                                    <span class="text">{{ __('Delete') }}</span>--}}
-                                {{--                                </a>--}}
+                                <a href="{{ route('orders.destroy', $order->id) }}"
+                                   class="btn btn-danger btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-flag"></i>
+                                    </span>
+                                    <span class="text">{{ __('Delete') }}</span>
+                                </a>
                             </td>
                         </tr>
                     @empty

@@ -36,7 +36,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     }
 
     /**
-     * @return Builder[]|Collection
+     * @return AnonymousResourceCollection
      */
     public function listAll()
     {

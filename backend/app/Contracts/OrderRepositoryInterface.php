@@ -2,8 +2,6 @@
 
 namespace App\Contracts;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
@@ -24,7 +22,7 @@ interface OrderRepositoryInterface
     public function loadRelationships($order);
 
     /**
-     * @return Builder[]|Collection
+     * @return AnonymousResourceCollection
      */
     public function listAll();
 
