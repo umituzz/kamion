@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Contracts\OrderRepositoryInterface;
+use App\Http\Requests\OrderRequest;
 use App\Http\Resources\OrderResource;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 /**
@@ -27,8 +27,10 @@ class OrdersController extends BaseController
         return $this->ok($data, __('Order List'), Response::HTTP_OK);
     }
 
-    public function store(Request $request)
+    public function store(OrderRequest $request)
     {
+        dd("here", $request->all());
+
         $order = $this->orderRepository->create([
             'load_type' => $request->input('load_type'),
             'commodity' => $request->input('commodity'),

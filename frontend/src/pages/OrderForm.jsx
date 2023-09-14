@@ -19,34 +19,50 @@ const OrderForm = () => {
     return (
         <Col md={8}>
             <div className="mb-4">
-                <h3>Login</h3>
+                <h3>Create Order</h3>
             </div>
             <Form onSubmit={handleSubmit}>
                 {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label className="text-center">
-                        Email <span className="text-danger">*</span>
+                        Load Type <span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Control type="email" placeholder="Enter Email" required min={3} onChange={(event) => setEmail(event.target.value)} />
-                    {vError && <p className="text-danger pt-1">{vError.email}</p>}
+                    <Form.Control type="text" placeholder="Enter Load Type" required min={3}
+                                  // onChange={(event) => setLoadType(event.target.value)}
+                    />
+                    {vError && <p className="text-danger pt-1">{vError.load_type}</p>}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>
-                        Password <span className="text-danger">*</span>
+                        Commodity <span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Control type="password" placeholder="Enter Password" required min={3} onChange={(event) => setPassword(event.target.value)} />
-                    {vError && <p className="text-danger pt-1">{vError.password}</p>}
+                    <Form.Control type="text" placeholder="Enter Commodity" required min={3}
+                                  // onChange={(event) => setCommodity(event.target.value)}
+                    />
+                    {vError && <p className="text-danger pt-1">{vError.commodity}</p>}
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>
+                        Commodity <span className="text-danger">*</span>
+                    </Form.Label>
+                    <Form.Control type="text" placeholder="Enter Departure City" required min={3}
+                                  // onChange={(event) => setCommodity(event.target.value)}
+                    />
+                    {vError && <p className="text-danger pt-1">{vError.departure_city}</p>}
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>
+                        Commodity <span className="text-danger">*</span>
+                    </Form.Label>
+                    <Form.Control type="text" placeholder="Enter Departure City" required min={3}
+                        // onChange={(event) => setCommodity(event.target.value)}
+                    />
+                    {vError && <p className="text-danger pt-1">{vError.arrival_city}</p>}
                 </Form.Group>
                 <Button variant="outline-primary" type="submit" disabled={loading}>
-                    Login
+                    Send
                 </Button>
             </Form>
-            <p className="mt-3">
-                {`Don't have an account? `}
-                <NavLink to={"/register"} className={"text-primary fw-bold text-decoration-none"}>
-                    Register
-                </NavLink>
-            </p>
         </Col>
     );
 };
