@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             RoleHasPermissionSeeder::class,
             ShipperSeeder::class,
             LoadTypeSeeder::class,
+            CurrencySeeder::class,
             OrderSeeder::class,
         ]);
     }
