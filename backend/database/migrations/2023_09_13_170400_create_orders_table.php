@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('commodity');
             $table->string('departure_city');
             $table->string('arrival_city');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

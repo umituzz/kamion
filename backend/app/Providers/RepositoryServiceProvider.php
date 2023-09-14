@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Contracts\OrderRepositoryInterface;
+use App\Contracts\SettingRepositoryInterface;
 use App\Contracts\UserRepositoryInterface;
 use App\Repositories\OrderRepository;
+use App\Repositories\SettingRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +29,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->app->bind(SettingRepositoryInterface::class, SettingRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
     }

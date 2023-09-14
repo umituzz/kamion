@@ -18,5 +18,6 @@ class SetupCommand extends Command
     public function handle()
     {
         Artisan::call('migrate:fresh --seed');
+        Artisan::call('redis:flush-db');
     }
 }
