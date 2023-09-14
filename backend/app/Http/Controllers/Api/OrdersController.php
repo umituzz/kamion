@@ -29,7 +29,7 @@ class OrdersController extends BaseController
 
     public function store(OrderRequest $request)
     {
-        $order = $this->orderRepository->with('shipper')->create([
+        $order = $this->orderRepository->create([
             'shipper_id' => auth()->id(),
             'load_type' => $request->input('load_type'),
             'commodity' => $request->input('commodity'),

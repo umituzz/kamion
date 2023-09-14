@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Order extends BaseModel
 {
     protected $fillable = [
-        'user_id',
+        'shipper_id',
         'load_type',
         'commodity',
         'departure_city',
