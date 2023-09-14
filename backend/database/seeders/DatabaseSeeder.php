@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             CurrencySeeder::class,
             CountrySeeder::class,
             CitySeeder::class,
+            OrderStatusSeeder::class,
             OrderSeeder::class,
         ]);
     }

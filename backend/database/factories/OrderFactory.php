@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Currency;
 use App\Models\LoadType;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\Shipper;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -28,6 +29,7 @@ class OrderFactory extends Factory
             'commodity' => $this->faker->randomDigit(),
             'departure_city_id' => City::factory(),
             'arrival_city_id' => City::factory(),
+            'order_status_id' => OrderStatus::factory()
         ];
     }
 }
