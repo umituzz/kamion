@@ -12,6 +12,9 @@ class ShipperSeeder extends Seeder
      */
     public function run(): void
     {
-        Shipper::factory()->count(1)->create();
+//        Shipper::factory()->count(1)->create();
+
+        Shipper::create(['first_name' => 'Ümit', 'last_name' => 'UZ', 'email' => 'umituz9999@gmail.com', 'password' => bcrypt(123456789)]);
+
     }
 }

@@ -38,8 +38,9 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'shippers',
         ],
+
     ],
 
     /*
@@ -60,15 +61,10 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'shippers' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Shipper::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
