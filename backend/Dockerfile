@@ -3,8 +3,11 @@ RUN apt-get update -y && apt-get install -y openssl zip unzip git curl libonig-d
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN docker-php-ext-install mysqli pdo_mysql
+RUN docker-php-ext-configure pcntl --enable-pcntl \
+  && docker-php-ext-install \
+    pcntl
 WORKDIR /app/backend
 COPY . .
 COPY .env.example .env
 EXPOSE 8000
-CMD bash -c "composer install && php artisan serve --host 0.0.0.0"
+CMD bash -c "composer install && php artisan key:generate && php artisan serve --host 0.0.0.0"
