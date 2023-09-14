@@ -26,4 +26,36 @@ class Order extends BaseModel
     {
         return $this->belongsTo(Shipper::class);
     }
+
+    /**
+     * @return BelongsTo
+     */
+    public function currency(): BelongsTo
+    {
+        return $this->belongsTo(Currency::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function loadType(): BelongsTo
+    {
+        return $this->belongsTo(LoadType::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function departureCity(): BelongsTo
+    {
+        return $this->belongsTo(City::class, 'departure_city_id', 'id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function arrivalCity(): BelongsTo
+    {
+        return $this->belongsTo(City::class, 'arrival_city_id', 'id');
+    }
 }

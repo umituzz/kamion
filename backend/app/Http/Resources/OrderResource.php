@@ -21,11 +21,12 @@ class OrderResource extends JsonResource
         return [
             'id' => $this->id,
             'shipper' => new ShipperResource($this->shipper),
-            'load_type_id' => $this->load_type_id,
+            'loadType' => new LoadTypeResource($this->loadType),
+            'currency' => new CurrencyResource($this->currency),
             'commodity' => $this->commodity,
-            'departure_city' => $this->departure_city,
-            'arrival_city' => $this->arrival_city,
-            'created_at' => $this->created_at->diffForHumans(),
+            'departureCity' => new CityResource($this->departureCity),
+            'arrivalCity' => new CityResource($this->arrivalCity),
+            'created_at' => $this->created_at->format('d-m-Y H:i'),
         ];
     }
 }
