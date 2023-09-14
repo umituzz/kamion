@@ -1,5 +1,5 @@
 import {Routes, Route} from "react-router-dom";
-import Menubar from "./Menubar";
+import Header from "./Header";
 import Footer from "./Footer";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
@@ -14,7 +14,7 @@ function App() {
     return (
         <div className="main">
             <AuthProvider>
-                <Menubar/>
+                <Header/>
                 <Routes>
                     <Route path="/*" element={<PrivateRoutes/>}>
                         <Route path="" element={<Home/>}/>
