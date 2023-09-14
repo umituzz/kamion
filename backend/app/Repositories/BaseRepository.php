@@ -33,6 +33,7 @@ class BaseRepository implements BaseRepositoryInterface
 
     /**
      * Insert a new record
+     *
      * @param $data
      * @return mixed
      */
@@ -51,5 +52,15 @@ class BaseRepository implements BaseRepositoryInterface
     public function findBy($key, $value)
     {
         return $this->model->where($key, $value)->first();
+    }
+
+    /**
+     * Get total records count
+     *
+     * @return mixed
+     */
+    public function total()
+    {
+        return $this->model->count();
     }
 }

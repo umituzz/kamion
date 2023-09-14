@@ -13,5 +13,6 @@ class PermissionSeeder extends Seeder
     public function run(): void
     {
         Permission::create(['name' => 'Order Management']);
+        Permission::create(['name' => 'Shipper Management']);
     }
 }

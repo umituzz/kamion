@@ -32,4 +32,12 @@ interface BaseRepositoryInterface
      * @return mixed
      */
     public function findBy($key, $value);
+
+    /**
+     * Get total records count
+     *
+     * @return mixed
+     */
+    public function total();
+
 }

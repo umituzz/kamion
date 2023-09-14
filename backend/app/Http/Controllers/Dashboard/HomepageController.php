@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Services\RedisService;
 
+/**
+ * Class HomepageController
+ * @package App\Http\Controllers\Dashboard
+ */
 class HomepageController extends Controller
 {
     private RedisService $redisService;
@@ -16,10 +20,12 @@ class HomepageController extends Controller
 
     public function index()
     {
-        $totalUsers = $this->redisService->get('total_orders');
+        $totalOrders = $this->redisService->get('total_orders');
+        $totalShippers = $this->redisService->get('total_shippers');
 
         return view('dashboard.homepage', [
-            'totalUsers' => $totalUsers,
+            'totalOrders' => $totalOrders,
+            'totalShippers' => $totalShippers,
         ]);
     }
 }

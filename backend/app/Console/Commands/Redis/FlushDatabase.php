@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Redis;
 
 use App\Services\RedisService;
 use Illuminate\Console\Command;
 
 /**
  * Class FlushDatabase
- * @package App\Console\Commands
+ * @package App\Console\Commands\Redis
  */
 class FlushDatabase extends Command
 {

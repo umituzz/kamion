@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Redis;
 
 use App\Contracts\SettingRepositoryInterface;
 use App\Enums\SettingEnums;
@@ -11,13 +11,13 @@ use Illuminate\Console\Command;
 
 /**
  * Class SyncSettingCommand
- * @package App\Console\Commands
+ * @package App\Console\Commands\Redis
  */
 class SyncSettingCommand extends Command
 {
-    protected $signature = 'sync:setting';
+    protected $signature = 'redis:sync-setting';
 
-    protected $description = 'Sync settings with database and redis';
+    protected $description = 'Sync settings with redis';
     private RedisService $redisService;
     private SettingRepositoryInterface $settingRepository;
 
