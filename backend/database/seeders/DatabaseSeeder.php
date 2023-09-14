@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             ShipperSeeder::class,
             LoadTypeSeeder::class,
             CurrencySeeder::class,
+            CountrySeeder::class,
             OrderSeeder::class,
         ]);
     }
