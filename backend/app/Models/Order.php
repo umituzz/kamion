@@ -58,4 +58,12 @@ class Order extends BaseModel
     {
         return $this->belongsTo(City::class, 'arrival_city_id', 'id');
     }
+
+    /**
+     * @return BelongsTo
+     */
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(OrderStatus::class, 'order_status_id', 'id');
+    }
 }
