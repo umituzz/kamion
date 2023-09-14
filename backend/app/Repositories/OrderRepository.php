@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Contracts\OrderRepositoryInterface;
-use App\Http\Resources\OrderCollection;
+use App\Http\Resources\OrderResource;
 use App\Models\Order;
 
 /**
@@ -25,7 +25,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     {
         $data = auth()->user()->orders;
 
-        return new OrderCollection($data);
+        return OrderResource::collection($data);
     }
 
 }
