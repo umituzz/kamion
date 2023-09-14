@@ -26,7 +26,7 @@ const AuthProvider = ({}) => {
         setLoading(true);
     };
 
-    
+
     // User registration function
     const createOrder = async (first_name, last_name, email, password, password_confirmation) => {
         const registerData = {first_name, last_name, email, password, password_confirmation};

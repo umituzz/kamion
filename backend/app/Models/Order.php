@@ -9,6 +9,7 @@ namespace App\Models;
 class Order extends BaseModel
 {
     protected $fillable = [
+        'user_id',
         'load_type',
         'commodity',
         'departure_city',

@@ -29,9 +29,8 @@ class OrdersController extends BaseController
 
     public function store(OrderRequest $request)
     {
-        dd("here", $request->all());
-
         $order = $this->orderRepository->create([
+            'user_id' => auth()->id(),
             'load_type' => $request->input('load_type'),
             'commodity' => $request->input('commodity'),
             'departure_city' => $request->input('departure_city'),
