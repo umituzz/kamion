@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Contracts\NotificationRepositoryInterface;
 use App\Contracts\OrderRepositoryInterface;
 use App\Contracts\SettingRepositoryInterface;
 use App\Contracts\ShipperRepositoryInterface;
 use App\Contracts\UserRepositoryInterface;
+use App\Repositories\NotificationRepository;
 use App\Repositories\OrderRepository;
 use App\Repositories\SettingRepository;
 use App\Repositories\ShipperRepository;
@@ -35,5 +37,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(ShipperRepositoryInterface::class, ShipperRepository::class);
         $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
+        $this->app->bind(NotificationRepositoryInterface::class, NotificationRepository::class);
     }
 }
