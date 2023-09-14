@@ -12,8 +12,8 @@ const useSettingList = (url) => {
             try {
                 const response = await axios.get(url);
 
-                if (response.data) {
-                    setOrders([...response.data]);
+                if (response.data.data) {
+                    setOrders([...response.data.data]);
                 }
             } catch (error) {
                 console.error(error);

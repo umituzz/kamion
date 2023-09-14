@@ -11,17 +11,18 @@ import OrderForm from "./pages/OrderForm";
 import Wrapper from "./components/Wrapper";
 import {useDispatch} from "react-redux";
 import useSettingList from "./hooks/useSettingList";
-import {login} from "./stores/auth";
+import {setSettings} from "./stores/setting";
 
 function App() {
 
-    const api = `http://localhost/api/orders`;
+    const api = `http://localhost/api/settings`;
 
     const {settings} = useSettingList(api);
 
     const dispatch = useDispatch();
 
-    dispatch(login(settings))
+    dispatch(setSettings(settings))
+
     return (
         <div className="main">
             <AuthProvider>

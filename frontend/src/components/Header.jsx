@@ -1,13 +1,7 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Account from "./Account";
-import {useSelector} from "react-redux";
 
 function Header() {
-
-	const {dark, language} = useSelector(state => state.site);
-
-	console.log(dark, language);
-
 	return (
 		<Navbar bg="light" expand="lg" className="sticky-top">
 			<Container>
