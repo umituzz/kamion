@@ -19,5 +19,6 @@ class SetupCommand extends Command
     {
         Artisan::call('migrate:fresh --seed');
         Artisan::call('redis:flush-db');
+        Artisan::call('sync:setting');
     }
 }
