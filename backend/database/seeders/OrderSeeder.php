@@ -13,5 +13,7 @@ class OrderSeeder extends Seeder
     public function run(): void
     {
         Order::factory()->count(1)->create();
+
+        Order::create(['shipper_id' => 1, 'load_type' => 1,'commodity' => 1500, 'departure_city' => 'İstanbul', 'arrival_city' => 'Gaziantep']);
     }
 }

@@ -6,6 +6,7 @@ use App\Contracts\OrderRepositoryInterface;
 use App\Http\Requests\OrderRequest;
 use App\Http\Resources\OrderResource;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class OrdersController
