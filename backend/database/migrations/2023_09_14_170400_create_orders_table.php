@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('commodity');
             $table->foreignId('departure_city_id');
             $table->foreignId('arrival_city_id');
-            $table->foreignId('order_status_id');
+            $table->foreignId('order_status_id')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

@@ -3,8 +3,8 @@
 namespace App\Observers;
 
 use App\Contracts\UserRepositoryInterface;
+use App\Http\Resources\OrderResource;
 use App\Models\Order;
-use App\Models\User;
 use App\Notifications\NewOrderNotification;
 use Illuminate\Support\Facades\Notification;
 
@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Notification;
  */
 class OrderObserver
 {
-
     private UserRepositoryInterface $userRepository;
 
     public function __construct(UserRepositoryInterface $userRepository)
@@ -28,13 +27,12 @@ class OrderObserver
     public function created(Order $order): void
     {
         $users = $this->userRepository->getAdmins();
+        $order = new OrderResource($order);
 
         Notification::send(
             $users,
             new NewOrderNotification([
-                'data' => [
-                    'order' => $order,
-                ]
+                'order' => $order,
             ])
         );
     }

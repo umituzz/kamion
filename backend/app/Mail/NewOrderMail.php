@@ -15,7 +15,8 @@ use Illuminate\Mail\Mailables\Address;
  * Class NewOrderMail
  * @package App\Mail
  */
-class NewOrderMail extends Mailable implements ShouldQueue
+class NewOrderMail extends Mailable
+//    implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -49,8 +50,7 @@ class NewOrderMail extends Mailable implements ShouldQueue
         return new Content(
             view: 'mail.new_order',
             with: [
-                'user' => $this->data['data']['user'] ?? NULL,
-                'order' => $this->data['data']['order'] ?? NULL,
+                'order' => $this->data['order'],
             ]
         );
     }

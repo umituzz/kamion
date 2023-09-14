@@ -6,7 +6,6 @@ use App\Contracts\OrderRepositoryInterface;
 use App\Http\Requests\OrderRequest;
 use App\Http\Resources\OrderResource;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * Class OrdersController
@@ -37,7 +36,9 @@ class OrdersController extends BaseController
             'commodity' => $request->input('commodity'),
             'departure_city_id' => $request->input('departure_city_id'),
             'arrival_city_id' => $request->input('arrival_city_id'),
+            'order_status_id' => $request->input('order_status_id'),
         ]);
+        $this->orderRepository->loadRelationships($order);
 
         $data = new OrderResource($order);
 

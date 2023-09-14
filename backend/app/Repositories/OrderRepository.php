@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Contracts\OrderRepositoryInterface;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
  * Class OrderRepository
@@ -21,12 +22,23 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         $this->order = $order;
     }
 
+    /**
+     * @return AnonymousResourceCollection
+     */
     public function getCollection()
     {
         $data = auth()->user()->orders;
-        $data->load('loadType', 'currency', 'departureCity', 'arrivalCity', 'status');
+        $this->loadRelationships($data);
 
         return OrderResource::collection($data);
     }
 
+    /**
+     * @param $order
+     * @return void
+     */
+    public function loadRelationships($order)
+    {
+        $order->load('loadType', 'currency', 'departureCity', 'arrivalCity', 'status');
+    }
 }
