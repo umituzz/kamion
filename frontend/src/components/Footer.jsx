@@ -1,11 +1,11 @@
 import {Navbar, Container} from "react-bootstrap";
-import {useSelector} from "react-redux";
+// import {useSelector} from "react-redux";
 
 const Footer = () => {
 
-    const {settings} = useSelector(state => state.settings);
-
-    console.log(settings);
+    // const {settings} = useSelector(state => state.settings);
+    //
+    // console.log(settings);
 
     return (
         <Navbar fixed="bottom" bg="light" variant="light" className="mt-2 py-3">
