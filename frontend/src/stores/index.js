@@ -1,10 +1,10 @@
 import {configureStore} from '@reduxjs/toolkit'
-import SiteReducer from './site'
+import SettingReducer from './setting'
 import AuthReducer from './auth'
 
 export default configureStore({
     reducer: {
-        site: SiteReducer,
+        setting: SettingReducer,
         auth: AuthReducer
     },
 })

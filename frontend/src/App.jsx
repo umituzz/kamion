@@ -9,10 +9,19 @@ import AuthProvider from "./contexts/AuthContext";
 import PublicRoutes from "./components/PublicRoutes";
 import OrderForm from "./pages/OrderForm";
 import Wrapper from "./components/Wrapper";
-import {routes} from "./routes";
+import {useDispatch} from "react-redux";
+import useSettingList from "./hooks/useSettingList";
+import {login} from "./stores/auth";
 
 function App() {
-    console.log(routes);
+
+    const api = `http://localhost/api/orders`;
+
+    const {settings} = useSettingList(api);
+
+    const dispatch = useDispatch();
+
+    dispatch(login(settings))
     return (
         <div className="main">
             <AuthProvider>
