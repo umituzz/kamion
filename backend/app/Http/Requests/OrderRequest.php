@@ -28,9 +28,10 @@ class OrderRequest extends FormRequest
     {
         return [
             'load_type_id' => ['required'],
+            'currency_id' => ['required'],
             'commodity' => ['required'],
-            'arrival_city' => ['required'],
-            'departure_city' => ['required'],
+            'arrival_city_id' => ['required'],
+            'departure_city_id' => ['required'],
         ];
     }
 }
