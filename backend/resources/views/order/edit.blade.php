@@ -18,16 +18,28 @@
                             <div class="form-group row">
 
                                 <div class="col-sm-3 mb-3 mb-sm-0">
-                                    <input name="name" type="text" class="form-control form-control-user" id="name"
-                                           placeholder="{{ __('Product Name') }}" value="{{ $product->name ?? NULL }}">
-                                    @if($errors->has('name'))
-                                        <span style="color:red">{{ $errors->first('name') }}</span>
+                                    <select name="order_status_id" class="form-select form-control"
+                                            aria-label="{{ __('Order Status') }}">
+                                        @isset($statuses)
+                                            @forelse($statuses as $status)
+                                                <option
+                                                    {{ $status->id == ($order->order_status_id ?? NULL) ? 'selected' : NULL }}
+                                                    value="{{ $status->id }}">{{ $status->name }}</option>
+                                            @empty
+                                            @endforelse
+                                        @endisset
+                                    </select>
+                                    @if($errors->has('order_status_id'))
+                                        <span style="color:red">{{ $errors->first('order_status_id') }}</span>
                                     @endif
                                 </div>
 
                             </div>
-
-                            <button type="submit" class="btn btn-primary btn-user btn-block">{{ __('Edit') }}</button>
+                            <div class="col-sm-1">
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    {{ __('Edit') }}
+                                </button>
+                            </div>
 
                         </form>
 
