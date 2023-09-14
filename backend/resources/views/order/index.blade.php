@@ -4,7 +4,7 @@
     <h1 class="h3 mb-2 text-gray-800">{{ __('Order Management') }}</h1>
     <div class="row">
         <div class="col-md-11 mb-2">
-{{--            @include('common.search', ['route' => route('orders.search'), 'inputName' => 'name'])--}}
+            {{--            @include('common.search', ['route' => route('orders.search'), 'inputName' => 'name'])--}}
         </div>
     </div>
 
@@ -40,27 +40,27 @@
                             <td>{{ $order->status->name }}</td>
                             <td>{{ $order['created_at'] }}</td>
                             <td>
-{{--                                <a href="{{ route('orders.edit', $order['id']) }}"--}}
-{{--                                   class="btn btn-primary btn-icon-split">--}}
-{{--                                                    <span class="icon text-white-50">--}}
-{{--                                                        <i class="fas fa-flag"></i>--}}
-{{--                                                    </span>--}}
-{{--                                    <span class="text">{{ __('Edit') }}</span>--}}
-{{--                                </a>--}}
-{{--                                <a href="{{ route('orders.destroy', $order['id']) }}"--}}
-{{--                                   class="btn btn-danger btn-icon-split">--}}
-{{--                                                    <span class="icon text-white-50">--}}
-{{--                                                        <i class="fas fa-flag"></i>--}}
-{{--                                                    </span>--}}
-{{--                                    <span class="text">{{ __('Delete') }}</span>--}}
-{{--                                </a>--}}
+                                <a href="{{ route('orders.edit', $order->id) }}"
+                                   class="btn btn-primary btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-flag"></i>
+                                                    </span>
+                                    <span class="text">{{ __('Edit') }}</span>
+                                </a>
+                                {{--                                <a href="{{ route('orders.destroy', $order['id']) }}"--}}
+                                {{--                                   class="btn btn-danger btn-icon-split">--}}
+                                {{--                                                    <span class="icon text-white-50">--}}
+                                {{--                                                        <i class="fas fa-flag"></i>--}}
+                                {{--                                                    </span>--}}
+                                {{--                                    <span class="text">{{ __('Delete') }}</span>--}}
+                                {{--                                </a>--}}
                             </td>
                         </tr>
                     @empty
                     @endforelse
                     </tbody>
                     <tfoot>
-{{--                        {{ $orders->links() }}--}}
+                    {{--                        {{ $orders->links() }}--}}
                     </tfoot>
                 </table>
             </div>

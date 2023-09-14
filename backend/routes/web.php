@@ -24,6 +24,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => '/orders', 'as' => 'orders.'], function () {
         Route::get('/', [OrdersController::class, 'index'])->name('index');
+
+        Route::get('/{id}/edit', [OrdersController::class, 'edit'])->name('edit');
+        Route::put('/{id}/update', [OrdersController::class, 'update'])->name('update');
+        Route::get('/{id}/destroy', [OrdersController::class, 'destroy'])->name('destroy');
+//        Route::post('/search', [OrdersController::class, 'search'])->name('search');
     });
 });
 

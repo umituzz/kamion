@@ -26,4 +26,23 @@ class OrdersController extends Controller
             'orders' => $orders,
         ]);
     }
+
+    public function edit($id)
+    {
+        $order = $this->orderRepository->findBy('id', $id);
+
+        return view('order.edit', [
+            'order' => $order
+        ]);
+    }
+
+    public function update($id)
+    {
+
+    }
+
+    public function destroy($id)
+    {
+
+    }
 }
