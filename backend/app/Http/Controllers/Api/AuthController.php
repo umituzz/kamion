@@ -3,21 +3,20 @@
 namespace App\Http\Controllers\Api;
 
 use App\Contracts\ShipperRepositoryInterface;
-use App\Contracts\UserRepositoryInterface;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Resources\ShipperResource;
-use App\Http\Resources\UserResource;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 
 /**
  * Class AuthController
  * @package App\Http\Controllers\Api
  */
-class AuthController extends BaseController
+class AuthController extends Controller
 {
     private ShipperRepositoryInterface $shipperRepository;
 
@@ -60,9 +59,9 @@ class AuthController extends BaseController
             ]);
         }
 
-        $data = $this->userRepository->findBy('email', $request->input('email'));
+        $data = $this->shipperRepository->findBy('email', $request->input('email'));
 
-        $user = new UserResource($data);
+        $user = new ShipperResource($data);
 
         return response()->json([
             'status' => Response::HTTP_OK,
