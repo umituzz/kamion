@@ -40,8 +40,8 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'api' => [
-            'driver' => 'token',
+        'shipper' => [
+            'driver' => 'sanctum',
             'provider' => 'shippers',
         ],
     ],
@@ -64,13 +64,13 @@ return [
     */
 
     'providers' => [
-        'shippers' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Shipper::class,
-        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'shippers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Shipper::class,
         ],
     ],
 

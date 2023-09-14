@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
+Route::get('/a', function () {
+
+    $a = config('auth');
+
+    dd("!here up!", $a);
+
+});
+
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
