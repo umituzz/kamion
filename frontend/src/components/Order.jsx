@@ -13,6 +13,7 @@ const Order = ({ orders }) => {
 					<th>Commodity</th>
 					<th>Departure City</th>
 					<th>Arrival City</th>
+					<th>Status</th>
 					<th>Created At</th>
 				</tr>
 				</thead>
@@ -26,6 +27,7 @@ const Order = ({ orders }) => {
 							<td>{order.commodity}</td>
 							<td>{order.departureCity.name}</td>
 							<td>{order.arrivalCity.name}</td>
+							<td>{order.status}</td>
 							<td>{order.created_at}</td>
 						</tr>
 					)

@@ -26,6 +26,7 @@ class OrderResource extends JsonResource
             'commodity' => $this->commodity,
             'departureCity' => new CityResource($this->departureCity),
             'arrivalCity' => new CityResource($this->arrivalCity),
+            'status' => $this->status->name ?? NULL,
             'created_at' => $this->created_at->format('d-m-Y H:i'),
         ];
     }
