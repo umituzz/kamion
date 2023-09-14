@@ -38,9 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'api' => [
+            'driver' => 'token',
             'provider' => 'shippers',
         ],
-
     ],
 
     /*
@@ -64,6 +67,10 @@ return [
         'shippers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Shipper::class,
+        ],
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
         ],
     ],
 

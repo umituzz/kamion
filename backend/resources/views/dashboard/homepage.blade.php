@@ -11,7 +11,7 @@
                     {{ __('Welcome!') }}
                 </div>
                 <div class="card-body">
-                    {{ __('You can create your own refrigerator and putting inside your products. You can see recipes and make comments about them. And also you can like or dislike.') }}
+                    {{ __('You can check last updates here') }}
                 </div>
             </div>
 
@@ -27,9 +27,9 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    {{ __('Total Refrigerators') }}
+                                    {{ __('Total Orders') }}
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalOrders }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalOrders ?? 0 }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>

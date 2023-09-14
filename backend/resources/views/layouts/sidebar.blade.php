@@ -18,26 +18,6 @@
             <span>{{ __('Dashboard') }}</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('refrigerators.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{ __('Refrigerator Management') }}</span></a>
-    </li>
-
-    @can('Product Management')
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('products.index') }}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>{{ __('Product Management') }}</span></a>
-        </li>
-    @endcan
-
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('recipes.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{ __('Recipe Management') }}</span></a>
-    </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider">
 
