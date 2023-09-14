@@ -53,11 +53,11 @@ class AuthController extends Controller
      */
     public function login(LoginRequest $request)
     {
-        $attempt = Auth::attempt($request->only('email', 'password'));
+        $attempt = Auth::guard('shipper')->attempt($request->only('email', 'password'));
 
         if (!$attempt) {
             return response()->json([
-                'errors' => __('The provided credentials are incorrect!')
+                'errors' => __('The provided credentials are incorrect!'),
             ]);
         }
 
