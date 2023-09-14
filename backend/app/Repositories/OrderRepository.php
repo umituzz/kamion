@@ -5,6 +5,8 @@ namespace App\Repositories;
 use App\Contracts\OrderRepositoryInterface;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
@@ -25,10 +27,20 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     /**
      * @return AnonymousResourceCollection
      */
-    public function getCollection()
+    public function getApiCollection()
     {
         $data = auth()->user()->orders;
         $this->loadRelationships($data);
+
+        return OrderResource::collection($data);
+    }
+
+    /**
+     * @return Builder[]|Collection
+     */
+    public function listAll()
+    {
+        $data = $this->order->with('loadType', 'currency', 'departureCity', 'arrivalCity', 'status')->get();
 
         return OrderResource::collection($data);
     }

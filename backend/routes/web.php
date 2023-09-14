@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\HomepageController;
+use App\Http\Controllers\Order\OrdersController;
 use App\Http\Controllers\User\NotificationsController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', [NotificationsController::class, 'index'])->name('index');
         Route::get('/{id}/show', [NotificationsController::class, 'show'])->name('show');
         Route::get('/{id}/destroy', [NotificationsController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::group(['prefix' => '/orders', 'as' => 'orders.'], function () {
+        Route::get('/', [OrdersController::class, 'index'])->name('index');
     });
 });
 

@@ -22,7 +22,7 @@ class OrdersController extends BaseController
 
     public function index()
     {
-        $data = $this->orderRepository->getCollection();
+        $data = $this->orderRepository->getApiCollection();
 
         return $this->ok($data, __('Order List'), Response::HTTP_OK);
     }
