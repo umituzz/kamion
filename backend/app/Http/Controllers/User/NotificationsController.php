@@ -6,6 +6,10 @@ use App\Contracts\NotificationRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\NotificationResource;
 
+/**
+ * Class NotificationsController
+ * @package App\Http\Controllers\Dashboard
+ */
 class NotificationsController extends Controller
 {
     private NotificationRepositoryInterface $notificationRepository;

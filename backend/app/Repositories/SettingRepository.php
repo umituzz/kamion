@@ -7,7 +7,7 @@ use App\Models\Setting;
 
 /**
  * Class SettingRepository
- * @package App\Models
+ * @package App\Repositories
  */
 class SettingRepository extends BaseRepository implements SettingRepositoryInterface
 {

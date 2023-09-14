@@ -7,7 +7,7 @@ use App\Models\Shipper;
 
 /**
  * Class ShipperRepository
- * @package App\Models
+ * @package App\Repositories
  */
 class ShipperRepository extends BaseRepository implements ShipperRepositoryInterface
 {

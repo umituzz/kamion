@@ -32,7 +32,7 @@
             </div>
         </li>
 
-{{--        @include('layouts.notifications')--}}
+        @include('layouts.notifications')
 
         <div class="topbar-divider d-none d-sm-block"></div>
 

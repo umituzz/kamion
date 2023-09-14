@@ -8,7 +8,7 @@ use App\Models\Order;
 
 /**
  * Class OrderRepository
- * @package App\Models
+ * @package App\Repositories
  */
 class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 {
