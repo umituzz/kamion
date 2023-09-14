@@ -12,7 +12,8 @@ class City extends BaseModel
 {
     protected $fillable = [
         'country_id',
-        'name'
+        'name',
+        'plate'
     ];
 
     /**
