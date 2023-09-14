@@ -20,8 +20,8 @@ const useOrderList = (url) => {
             try {
                 const response = await http.get(url);
 
-                if (response.data.data.data) {
-                    setOrders([...response.data.data.data.data]);
+                if (response.data.data) {
+                    setOrders([...response.data.data]);
                 }
             } catch (error) {
                 console.error(error);

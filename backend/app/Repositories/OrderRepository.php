@@ -24,6 +24,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     public function getCollection()
     {
         $data = auth()->user()->orders;
+        $data->load('loadType', 'currency', 'departureCity', 'arrivalCity');
 
         return OrderResource::collection($data);
     }

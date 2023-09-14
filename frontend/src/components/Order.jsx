@@ -9,6 +9,7 @@ const Order = ({ orders }) => {
 				<tr>
 					<th>#</th>
 					<th>Load Type</th>
+					<th>Currency</th>
 					<th>Commodity</th>
 					<th>Departure City</th>
 					<th>Arrival City</th>
@@ -20,10 +21,11 @@ const Order = ({ orders }) => {
 					return (
 						<tr key={order.id}>
 							<td>{order.id}</td>
-							<td>{order.load_type}</td>
+							<td>{order.loadType.name}</td>
+							<td>{order.currency.name}</td>
 							<td>{order.commodity}</td>
-							<td>{order.departure_city}</td>
-							<td>{order.arrival_city}</td>
+							<td>{order.departureCity.name}</td>
+							<td>{order.arrivalCity.name}</td>
 							<td>{order.created_at}</td>
 						</tr>
 					)
