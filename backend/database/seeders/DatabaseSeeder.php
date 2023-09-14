@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             LoadTypeSeeder::class,
             CurrencySeeder::class,
             CountrySeeder::class,
+            CitySeeder::class,
             OrderSeeder::class,
         ]);
     }
