@@ -12,7 +12,7 @@
 <p>{{ __('You have a new order') }} </p>
 <p>Order Details</p>
 <span>Shipper: {{ $order->shipper->first_name  }} {{ $order->shipper->last_name }}</span> <br>
-<span>Load Type: {{ $order->load_type }}</span> <br>
+<span>Load Type: {{ $order->load_type_id }}</span> <br>
 <span>Departure City: {{ $order->departure_city }}</span> <br>
 <span>Arrival City: {{ $order->arrival_city }}</span> <br>
 <span>Created At: {{ $order->created_at }}</span> <br>

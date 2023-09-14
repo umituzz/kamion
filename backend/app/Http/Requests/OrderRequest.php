@@ -27,7 +27,7 @@ class OrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'load_type' => ['required'],
+            'load_type_id' => ['required'],
             'commodity' => ['required'],
             'arrival_city' => ['required'],
             'departure_city' => ['required'],

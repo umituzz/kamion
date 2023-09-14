@@ -21,6 +21,7 @@ class CityFactory extends Factory
         return [
             'country_id' => Country::factory(),
             'name' => $this->faker->city,
+            'plate' => $this->faker->randomDigit()
         ];
     }
 }

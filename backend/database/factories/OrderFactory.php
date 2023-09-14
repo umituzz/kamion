@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\City;
+use App\Models\Currency;
+use App\Models\LoadType;
 use App\Models\Order;
 use App\Models\Shipper;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -20,10 +23,11 @@ class OrderFactory extends Factory
     {
         return [
             'shipper_id' => Shipper::factory(),
-            'load_type' => $this->faker->word,
+            'load_type_id' => LoadType::factory(),
+            'currency_id' => Currency::factory(),
             'commodity' => $this->faker->randomDigit(),
-            'departure_city' => $this->faker->city,
-            'arrival_city' => $this->faker->city,
+            'departure_city_id' => City::factory(),
+            'arrival_city_id' => City::factory(),
         ];
     }
 }

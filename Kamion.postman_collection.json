@@ -138,7 +138,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"load_type\": \"test\",\r\n    \"commodity\": 2000,\r\n    \"departure_city\": \"İstanbul\",\r\n    \"arrival_city\": \"Gaziantep\"\r\n}",
+							"raw": "{\r\n    \"load_type_id\": \"test\",\r\n    \"commodity\": 2000,\r\n    \"departure_city\": \"İstanbul\",\r\n    \"arrival_city\": \"Gaziantep\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

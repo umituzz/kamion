@@ -32,7 +32,7 @@ class OrdersController extends BaseController
     {
         $order = $this->orderRepository->create([
             'shipper_id' => auth()->id(),
-            'load_type' => $request->input('load_type'),
+            'load_type_id' => $request->input('load_type_id'),
             'commodity' => $request->input('commodity'),
             'departure_city' => $request->input('departure_city'),
             'arrival_city' => $request->input('arrival_city'),

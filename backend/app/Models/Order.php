@@ -12,10 +12,11 @@ class Order extends BaseModel
 {
     protected $fillable = [
         'shipper_id',
-        'load_type',
+        'load_type_id',
+        'currency_id',
         'commodity',
-        'departure_city',
-        'arrival_city',
+        'departure_city_id',
+        'arrival_city_id',
     ];
 
     /**

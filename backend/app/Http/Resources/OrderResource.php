@@ -21,7 +21,7 @@ class OrderResource extends JsonResource
         return [
             'id' => $this->id,
             'shipper' => new ShipperResource($this->shipper),
-            'load_type' => $this->load_type,
+            'load_type_id' => $this->load_type_id,
             'commodity' => $this->commodity,
             'departure_city' => $this->departure_city,
             'arrival_city' => $this->arrival_city,
