@@ -11,7 +11,7 @@
                     {{ __('Welcome!') }}
                 </div>
                 <div class="card-body">
-                    {{ __('You can create your own refrigerator and putting inside your products. You can see recipes and make comments about them. And also you can like or dislike.') }}
+                    {{ __('You can check latest updates') }}
                 </div>
             </div>
 
