@@ -14,5 +14,6 @@ class PermissionSeeder extends Seeder
     {
         Permission::create(['name' => 'Order Management']);
         Permission::create(['name' => 'Shipper Management']);
+        Permission::create(['name' => 'Notification Management']);
     }
 }

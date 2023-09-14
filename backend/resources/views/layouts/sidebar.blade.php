@@ -16,17 +16,21 @@
             <span>{{ __('Dashboard') }}</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('orders.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{ __('Orders') }}</span></a>
-    </li>
+    @can('Order Management')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('orders.index') }}">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>{{ __('Orders') }}</span></a>
+        </li>
+    @endcan
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('notifications.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{ __('Notifications') }}</span></a>
-    </li>
+    @can('Notification Management')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('notifications.index') }}">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>{{ __('Notifications') }}</span></a>
+        </li>
+    @endcan
 
     <hr class="sidebar-divider">
 
