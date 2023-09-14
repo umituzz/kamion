@@ -17,15 +17,23 @@
                             @method('PUT')
 
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input name="name" type="text" class="form-control form-control-user" id="name"
-                                           placeholder="{{ __('Full Name') }}" value="{{ $user->name }}">
-                                    @if($errors->has('name'))
-                                        <span style="color:red">{{ $errors->first('name') }}</span>
+                                <div class="col-sm-4 mb-3 mb-sm-0">
+                                    <input name="first_name" type="text" class="form-control form-control-user" id="first_name"
+                                           placeholder="{{ __('First Name') }}" value="{{ $user->first_name }}">
+                                    @if($errors->has('first_name'))
+                                        <span style="color:red">{{ $errors->first('first_name') }}</span>
                                     @endif
                                 </div>
 
-                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="col-sm-4 mb-3 mb-sm-0">
+                                    <input name="last_name" type="text" class="form-control form-control-user" id="last_name"
+                                           placeholder="{{ __('Last Name') }}" value="{{ $user->last_name }}">
+                                    @if($errors->has('last_name'))
+                                        <span style="color:red">{{ $errors->first('last_name') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="col-sm-4 mb-3 mb-sm-0">
                                     <input name="email" type="text" class="form-control form-control-user" id="email"
                                            placeholder="{{ __('Email') }}" value="{{ $user->email }}">
                                     @if($errors->has('email'))

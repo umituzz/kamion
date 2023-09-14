@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Contracts\UserRepositoryInterface;
 use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 /**
  * Class UserRepository
@@ -23,5 +24,10 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     public function getAdmins()
     {
         return $this->user->role('Admin')->get();
+    }
+
+    public function getAuthenticatedUser()
+    {
+        return auth()->user();
     }
 }

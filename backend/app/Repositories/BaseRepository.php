@@ -63,4 +63,14 @@ class BaseRepository implements BaseRepositoryInterface
     {
         return $this->model->count();
     }
+
+    /**
+     * @param $id
+     * @param $data
+     * @return mixed
+     */
+    public function update($id, $data)
+    {
+        return $this->model->where('id', $id)->update($data);
+    }
 }

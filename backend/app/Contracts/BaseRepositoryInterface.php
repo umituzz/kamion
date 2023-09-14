@@ -40,4 +40,10 @@ interface BaseRepositoryInterface
      */
     public function total();
 
+    /**
+     * @param $id
+     * @param $data
+     * @return mixed
+     */
+    public function update($id, $data);
 }
