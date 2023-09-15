@@ -4,7 +4,7 @@ export const site = createSlice({
     name: 'site',
     initialState: {
         company: 'Kamion Inc.',
-        date: 2024,
+        date: 2023,
         footerMessage: 'All Rights Reserved.'
     },
     reducers: {
