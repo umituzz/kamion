@@ -24,12 +24,12 @@
                     <tr>
                         <th>#</th>
                         <th>{{ __('Load Type') }}</th>
-{{--                        <th>{{ __('Currency') }}</th>--}}
-{{--                        <th>{{ __('Commodity') }}</th>--}}
-{{--                        <th>{{ __('Departure City') }}</th>--}}
-{{--                        <th>{{ __('Arrival City') }}</th>--}}
-{{--                        <th>{{ __('Status') }}</th>--}}
-{{--                        <th>{{ __('Created At') }}</th>--}}
+                        <th>{{ __('Currency') }}</th>
+                        <th>{{ __('Commodity') }}</th>
+                        <th>{{ __('Departure City') }}</th>
+                        <th>{{ __('Arrival City') }}</th>
+                        <th>{{ __('Status') }}</th>
+                        <th>{{ __('Created At') }}</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -39,29 +39,28 @@
                         <tr>
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->load_type  }}</td>
-{{--                            <td>{{ $order->cu
-rrency->name }}</td>--}}
-{{--                            <td>{{ $order->commodity }}</td>--}}
-{{--                            <td>{{ $order->departureCity->name }}</td>--}}
-{{--                            <td>{{ $order->arrivalCity->name }}</td>--}}
-{{--                            <td>{{ $order->status->name }}</td>--}}
-{{--                            <td>{{ $order['created_at'] }}</td>--}}
-{{--                            <td>--}}
-{{--                                <a href="{{ route('orders.edit', $order->id) }}"--}}
-{{--                                   class="btn btn-primary btn-icon-split">--}}
-{{--                                                    <span class="icon text-white-50">--}}
-{{--                                                        <i class="fas fa-flag"></i>--}}
-{{--                                                    </span>--}}
-{{--                                    <span class="text">{{ __('Edit') }}</span>--}}
-{{--                                </a>--}}
-{{--                                <a href="{{ route('orders.destroy', $order->id) }}"--}}
-{{--                                   class="btn btn-danger btn-icon-split">--}}
-{{--                                    <span class="icon text-white-50">--}}
-{{--                                        <i class="fas fa-flag"></i>--}}
-{{--                                    </span>--}}
-{{--                                    <span class="text">{{ __('Delete') }}</span>--}}
-{{--                                </a>--}}
-{{--                            </td>--}}
+                            <td>{{ $order->currency }}</td>
+                            <td>{{ $order->commodity }}</td>
+                            <td>{{ $order->departure_city }}</td>
+                            <td>{{ $order->arrival_city }}</td>
+                            <td>{{ $order->status }}</td>
+                            <td>{{ $order['created_at'] }}</td>
+                            <td>
+                                <a href="{{ route('orders.edit', $order->id) }}"
+                                   class="btn btn-primary btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-flag"></i>
+                                                    </span>
+                                    <span class="text">{{ __('Edit') }}</span>
+                                </a>
+                                <a href="{{ route('orders.destroy', $order->id) }}"
+                                   class="btn btn-danger btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-flag"></i>
+                                    </span>
+                                    <span class="text">{{ __('Delete') }}</span>
+                                </a>
+                            </td>
                         </tr>
                     @empty
                     @endforelse

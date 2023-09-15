@@ -19,8 +19,15 @@ class Order extends BaseModel
     public function toSearchableArray(): array
     {
         return [
+            'shippers.first_name' => '',
+            'shippers.last_name' => '',
             'commodity' => '',
-            'load_types.name' => ''
+            'load_types.name' => '',
+            'currencies.name' => '',
+            'departure_cities.name' => '',
+            'arrival_cities.name' => '',
+            'order_statuses.name' => '',
+            'orders.created_at' => '',
         ];
     }
     protected $fillable = [

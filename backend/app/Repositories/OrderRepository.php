@@ -5,6 +5,8 @@ namespace App\Repositories;
 use App\Contracts\OrderRepositoryInterface;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
@@ -27,21 +29,23 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
      */
     public function getApiCollection()
     {
-        $data = $this->order->where('shipper_id', 1)->get();
-//        $data = auth()->user()->orders;
+        $data = auth()->user()->orders;
         $this->loadRelationships($data);
 
         return OrderResource::collection($data);
     }
 
     /**
-     * @return AnonymousResourceCollection
+     * @return Builder[]|Collection
      */
     public function listAll()
     {
-        $data = $this->order->with('loadType', 'currency', 'departureCity', 'arrivalCity', 'status')->get();
+        return $this->order
+            ->query(function ($builder) {
+                return $this->queryBuilder($builder);
+            })
+            ->get();
 
-        return OrderResource::collection($data);
     }
 
     /**
@@ -55,16 +59,36 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 
     public function search($key)
     {
-        $orders = Order::search($key)
+        return $this->order
+            ->search($key)
             ->query(function ($builder) {
-                $builder->join('load_types', 'orders.load_type_id', 'load_types.id')
-                    ->select(['orders.id', 'orders.commodity', 'load_types.name as load_type'])
-                    ->orderBy('orders.id', 'DESC');
+                return $this->queryBuilder($builder);
             })
             ->get();
+    }
 
-        $this->loadRelationships($orders);
+    private function queryBuilder($builder)
+    {
+        $builder->join('shippers', 'orders.shipper_id', 'shippers.id');
+        $builder->join('load_types', 'orders.load_type_id', 'load_types.id');
+        $builder->join('currencies', 'orders.currency_id', 'currencies.id');
+        $builder->join('cities as departure_cities', 'orders.departure_city_id', 'departure_cities.id');
+        $builder->join('cities as arrival_cities', 'orders.arrival_city_id', 'arrival_cities.id');
+        $builder->join('order_statuses', 'orders.order_status_id', 'order_statuses.id');
 
-        return $orders;
+        $builder->select([
+            'orders.id',
+            'orders.commodity',
+            'load_types.name as load_type',
+            'shippers.first_name as shipper_first_name',
+            'shippers.last_name as shipper_last_name',
+            'currencies.name as currency',
+            'departure_cities.name as departure_city',
+            'arrival_cities.name as arrival_city',
+            'order_statuses.name as status',
+            'orders.created_at'
+        ]);
+
+        $builder->orderBy('orders.id', 'DESC');
     }
 }
