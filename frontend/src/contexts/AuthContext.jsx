@@ -11,7 +11,7 @@ export const useAuth = () => {
 const AuthProvider = ({children}) => {
 
     const http = axios.create({
-        baseURL: 'http://localhost/api',
+        baseURL: process.env.REACT_APP_BASE_URL,
         headers: {
             'X-Requested-With': 'XMLHttpRequest',
         },

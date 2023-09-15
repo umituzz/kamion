@@ -18,7 +18,7 @@ const Order = ({ orders }) => {
 				</tr>
 				</thead>
 				<tbody>
-				{orders.map((order) => {
+				{orders?.map((order) => {
 					return (
 						<tr key={order.id}>
 							<td>{order.id}</td>
