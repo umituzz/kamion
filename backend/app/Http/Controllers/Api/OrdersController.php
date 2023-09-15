@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Contracts\OrderRepositoryInterface;
 use App\Http\Requests\OrderRequest;
 use App\Http\Resources\OrderResource;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 /**
@@ -24,7 +25,7 @@ class OrdersController extends BaseController
     {
         $data = $this->orderRepository->getApiCollection();
 
-        return $this->ok($data, __('Order List'), 200);
+        return $this->ok($data, __('Order List'), Response::HTTP_OK);
     }
 
     public function store(OrderRequest $request)
@@ -43,6 +44,13 @@ class OrdersController extends BaseController
 
         $data = new OrderResource($order);
 
-        return $this->ok($data, __('Order Created'), 201);
+        return $this->ok($data, __('Order Created'), Response::HTTP_CREATED);
+    }
+
+    public function search(Request $request)
+    {
+        $data = $this->orderRepository->search($request->input('search'));
+
+        return $this->ok($data, __('Order Search List'), Response::HTTP_OK);
     }
 }

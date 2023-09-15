@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Ümit\",\r\n    \"last_name\": \"UZ\",\r\n    \"email\": \"umituz9999@gmail.com\",\r\n    \"password\": \"123456789\",\r\n    \"password_confirmation\": \"123456789\"\r\n}",
+							"raw": "{\r\n    \"first_name\": \"Ümit\",\r\n    \"last_name\": \"UZ\",\r\n    \"email\": \"umituz998@gmail.com\",\r\n    \"password\": \"123456789\",\r\n    \"password_confirmation\": \"123456789\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,7 +45,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|HldFMtVGQR7JWMugXBw9o0eKwCCxA4V174xdSRfQ8d16ec76",
+									"value": "1|PUiULd2PBspHnyHUlbWFZq0hBSFaPOeRa41TFlWy707ce696",
 									"type": "string"
 								}
 							]
@@ -91,7 +91,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|Anaf8D3GWnCo08NyZCNNkc2eUJhAw9m9SLFcT0pz4a0653ae",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY5NDc4MTAzNywiZXhwIjoxNjk0Nzg0NjM3LCJuYmYiOjE2OTQ3ODEwMzcsImp0aSI6IkttUzZMSFdkM2R1UlM3ZFIiLCJzdWIiOiIxIiwicHJ2IjoiMWQ3OTA0ZTJjM2ViZDRiOGU4ZTc5ZTgwNGQxMmE1NDEzNjU0MGExNyJ9.tDA3b53RtaJzuwpAslcHmPJYPvL0Z3BiT6OlHoIvj9w",
 									"type": "string"
 								}
 							]
@@ -129,7 +129,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|Anaf8D3GWnCo08NyZCNNkc2eUJhAw9m9SLFcT0pz4a0653ae",
+									"value": "1|x9eb7OT1jhvXdJmX5mxW5RrqYwokq2HchDabctvQ7059f0bc",
 									"type": "string"
 								}
 							]
@@ -138,7 +138,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"load_type_id\": \"test\",\r\n    \"commodity\": 2000,\r\n    \"departure_city\": \"İstanbul\",\r\n    \"arrival_city\": \"Gaziantep\"\r\n}",
+							"raw": "{\r\n    \"load_type_id\": 1,\r\n    \"currency_id\": 1,\r\n    \"commodity\": 2000,\r\n    \"departure_city_id\": 34,\r\n    \"arrival_city_id\": 27,\r\n    \"order_status_id\": 10\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -159,14 +159,53 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY5NDc4MTAzNywiZXhwIjoxNjk0Nzg0NjM3LCJuYmYiOjE2OTQ3ODEwMzcsImp0aSI6IkttUzZMSFdkM2R1UlM3ZFIiLCJzdWIiOiIxIiwicHJ2IjoiMWQ3OTA0ZTJjM2ViZDRiOGU4ZTc5ZTgwNGQxMmE1NDEzNjU0MGExNyJ9.tDA3b53RtaJzuwpAslcHmPJYPvL0Z3BiT6OlHoIvj9w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"search\": \"Ümit \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/orders/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"orders",
+								"search"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "Settings",
+			"name": "Initial",
 			"item": [
 				{
-					"name": "List",
+					"name": "Initial",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -176,7 +215,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|3ZcSuSTl1CmacgOLU7zqTUgXanFZW7xv8mqfAanj185757d9",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2FwaS9sb2dpbiIsImlhdCI6MTY5NDc4MTAzNywiZXhwIjoxNjk0Nzg0NjM3LCJuYmYiOjE2OTQ3ODEwMzcsImp0aSI6IkttUzZMSFdkM2R1UlM3ZFIiLCJzdWIiOiIxIiwicHJ2IjoiMWQ3OTA0ZTJjM2ViZDRiOGU4ZTc5ZTgwNGQxMmE1NDEzNjU0MGExNyJ9.tDA3b53RtaJzuwpAslcHmPJYPvL0Z3BiT6OlHoIvj9w",
 									"type": "string"
 								}
 							]
@@ -193,14 +232,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/api/settings",
+							"raw": "http://localhost/api/initial",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
-								"settings"
+								"initial"
 							]
 						}
 					},

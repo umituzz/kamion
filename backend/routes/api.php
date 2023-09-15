@@ -11,10 +11,12 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/currencies', [InitialController::class, 'index']);
+
+    Route::get('/initial', [InitialController::class, 'index']);
 
     Route::group(['prefix' => '/orders', 'as' => 'orders.'], function () {
         Route::get('/', [OrdersController::class, 'index']);
         Route::post('/', [OrdersController::class, 'store']);
+        Route::post('/search', [OrdersController::class, 'search']);
     });
 });
