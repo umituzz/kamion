@@ -9,24 +9,13 @@ import AuthProvider from "./contexts/AuthContext";
 import PublicRoutes from "./components/PublicRoutes";
 import OrderForm from "./pages/OrderForm";
 import Wrapper from "./components/Wrapper";
-// import {useDispatch} from "react-redux";
-// import useSettingList from "./hooks/useSettingList";
-// import {setSettings} from "./stores/setting";
 
 function App() {
-
-    // const api = `http://localhost/api/settings`;
-    //
-    // const {settings} = useSettingList(api);
-    //
-    // const dispatch = useDispatch();
-    //
-    // dispatch(setSettings(settings))
-
     return (
         <div className="main">
             <AuthProvider>
                 <Header/>
+
                 <Routes>
                     <Route path="/*" element={<PrivateRoutes/>}>
                         <Route path="" element={<Home/>}/>
