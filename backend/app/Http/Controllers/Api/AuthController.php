@@ -39,13 +39,13 @@ class AuthController extends Controller
             'password' => bcrypt($request->input('password'))
         ]);
 
+        $token = JWTAuth::fromUser($shipper);
         $resource = new ShipperResource($shipper);
 
         return response()->json([
             'status' => Response::HTTP_OK,
             'user' => $resource,
-//            'token' => $shipper->createToken('userToken')->plainTextToken
-            'token' => $shipper->createToken('userToken')->plainTextToken
+            'token' => $token
         ]);
     }
 
