@@ -21,9 +21,11 @@ class SetupCommand extends Command
 
         Artisan::call('redis:flush-db');
 
-        Artisan::call('redis:sync-setting');
+        Artisan::call('redis:sync-settings');
         Artisan::call('redis:sync-currencies');
+        Artisan::call('redis:sync-cities');
         Artisan::call('redis:sync-order-status');
+        Artisan::call('redis:sync-load-types');
 
         Artisan::call('redis:set-total-orders');
         Artisan::call('redis:set-total-shippers');

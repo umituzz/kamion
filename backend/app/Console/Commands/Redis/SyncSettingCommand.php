@@ -15,7 +15,7 @@ use Illuminate\Console\Command;
  */
 class SyncSettingCommand extends Command
 {
-    protected $signature = 'redis:sync-setting';
+    protected $signature = 'redis:sync-settings';
 
     protected $description = 'Sync settings with redis';
     private RedisService $redisService;
@@ -41,7 +41,6 @@ class SyncSettingCommand extends Command
 
             return Command::SUCCESS;
         } catch (Exception $exception) {
-            //@todo yeni bir throw exception ile mail gönderilebilir
             return Command::FAILURE;
         }
     }

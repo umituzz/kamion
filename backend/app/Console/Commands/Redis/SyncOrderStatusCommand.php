@@ -41,7 +41,6 @@ class SyncOrderStatusCommand extends Command
 
             return Command::SUCCESS;
         } catch (Exception $exception) {
-            //@todo yeni bir throw exception ile mail gönderilebilir
             return Command::FAILURE;
         }
     }

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\CurrencyRepositoryInterface;
+use App\Enums\CityEnums;
 use App\Enums\CurrencyEnums;
+use App\Enums\LoadTypeEnums;
 use App\Enums\SettingEnums;
 use App\Services\RedisService;
 use Illuminate\Http\Response;
@@ -15,28 +16,28 @@ use Illuminate\Http\Response;
 class InitialController extends BaseController
 {
     private RedisService $redisService;
-    private CurrencyRepositoryInterface $currencyRepository;
 
     public function __construct(
         RedisService $redisService,
-        CurrencyRepositoryInterface $currencyRepository
     )
     {
         $this->redisService = $redisService;
-        $this->currencyRepository = $currencyRepository;
     }
 
     public function index()
     {
         $settings = $this->redisService->get(SettingEnums::REDIS_KEY);
-//        $currencies = $this->redisService->get(CurrencyEnums::REDIS_KEY);
-        $currencies = $this->currencyRepository->get();
+        $currencies = $this->redisService->get(CurrencyEnums::REDIS_KEY);
+        $loadTypes = $this->redisService->get(LoadTypeEnums::REDIS_KEY);
+        $cities = $this->redisService->get(CityEnums::REDIS_KEY);
 
-//        $data = [
-//            'settings' => $settings,
-//            'currencies' => $currencies,
-//        ];
+        $data = [
+            'settings' => $settings,
+            'currencies' => $currencies,
+            'loadTypes' => $loadTypes,
+            'cities' => $cities,
+        ];
 
-        return $this->ok($currencies, __('Initial Data '), Response::HTTP_OK);
+        return $this->ok($data, __('Initial Data '), Response::HTTP_OK);
     }
 }

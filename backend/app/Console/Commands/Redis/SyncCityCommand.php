@@ -2,8 +2,10 @@
 
 namespace App\Console\Commands\Redis;
 
+use App\Contracts\CityRepositoryInterface;
 use App\Contracts\CurrencyRepositoryInterface;
 use App\Contracts\OrderStatusRepositoryInterface;
+use App\Enums\CityEnums;
 use App\Enums\CurrencyEnums;
 use App\Enums\OrderStatusEnums;
 use App\Http\Resources\CurrencyResource;
@@ -13,34 +15,34 @@ use Exception;
 use Illuminate\Console\Command;
 
 /**
- * Class SyncOrderStatusCommand
+ * Class SyncCityCommand
  * @package App\Console\Commands\Redis
  */
-class SyncCurrencyCommand extends Command
+class SyncCityCommand extends Command
 {
-    protected $signature = 'redis:sync-currencies';
+    protected $signature = 'redis:sync-cities';
 
-    protected $description = 'Sync currencies with redis';
+    protected $description = 'Sync cities with redis';
     private RedisService $redisService;
-    private CurrencyRepositoryInterface $currencyRepository;
+    private CityRepositoryInterface $cityRepository;
 
     public function __construct(
-        RedisService $redisService,
-        CurrencyRepositoryInterface $currencyRepository
+        RedisService            $redisService,
+        CityRepositoryInterface $cityRepository
     )
     {
         parent::__construct();
 
         $this->redisService = $redisService;
-        $this->currencyRepository = $currencyRepository;
+        $this->cityRepository = $cityRepository;
     }
 
     public function handle()
     {
         try {
-            $data = $this->currencyRepository->get();
-            $currencies = CurrencyResource::collection($data);
-            $this->redisService->set(CurrencyEnums::REDIS_KEY, $currencies);
+            $data = $this->cityRepository->get();
+            $items = CurrencyResource::collection($data);
+            $this->redisService->set(CityEnums::REDIS_KEY, $items);
 
             return Command::SUCCESS;
         } catch (Exception $exception) {
