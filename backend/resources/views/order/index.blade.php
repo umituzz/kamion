@@ -4,7 +4,12 @@
     <h1 class="h3 mb-2 text-gray-800">{{ __('Order Management') }}</h1>
     <div class="row">
         <div class="col-md-11 mb-2">
-            {{--            @include('common.search', ['route' => route('orders.search'), 'inputName' => 'name'])--}}
+            <form class="col-md-12 row" action="{{ route('orders.search') }}" method="POST">
+                @csrf
+                <input name="search" type="text" class="form-control form-control-user col-md-2 mr-3 " id="search"
+                       placeholder="{{ __('Search') }}">
+                <button type="submit" class="btn btn-primary btn-user btn-block col-md-1">{{ __('Search') }}</button>
+            </form>
         </div>
     </div>
 

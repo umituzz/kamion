@@ -2,22 +2,32 @@ import {Row, Container} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import useOrderList from "../hooks/useOrderList";
 import Order from "../components/Order";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import {loadListAction} from "../stores/actions/DataListAction";
 
 function Home() {
-    const [ordersShow, setOrdersShow] = useState([]);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [orders, setOrders] = useState([]);
 
-    const api = `http://localhost/api/orders`;
-
-    const {orders} = useOrderList(api);
+    const data = useSelector(state => state.dataList.dataList);
 
     useEffect(() => {
-        setOrdersShow([...orders]);
-    }, [orders]);
+        dispatch(loadListAction('orders', navigate()));
+    }, [dispatch]);
+
+
+    useEffect(() => {
+        if (data.data) {
+            setOrders(data.data);
+        }
+    }, [data]);
 
     return (
         <Container className="mt-2 minHeight">
             <Row>
-                <Order orders={ordersShow}/>
+                <Order orders={orders}/>
             </Row>
         </Container>
     );

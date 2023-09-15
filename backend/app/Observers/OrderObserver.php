@@ -26,14 +26,14 @@ class OrderObserver
      */
     public function created(Order $order): void
     {
-        $users = $this->userRepository->getAdmins();
-        $order = new OrderResource($order);
-
-        Notification::send(
-            $users,
-            new NewOrderNotification([
-                'order' => $order,
-            ])
-        );
+//        $users = $this->userRepository->getAdmins();
+//        $order = new OrderResource($order);
+//
+//        Notification::send(
+//            $users,
+//            new NewOrderNotification([
+//                'order' => $order,
+//            ])
+//        );
     }
 }

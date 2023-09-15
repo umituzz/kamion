@@ -2,13 +2,13 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 
 const useOrderList = (url) => {
-    const http = axios.create({
-        baseURL: 'http://localhost/api',
-        headers: {
-            'X-Requested-With': 'XMLHttpRequest',
-        },
-        withCredentials: true
-    });
+    // const http = axios.create({
+    //     baseURL: 'http://localhost/api',
+    //     headers: {
+    //         'X-Requested-With': 'XMLHttpRequest',
+    //     },
+    //     withCredentials: true
+    // });
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -18,7 +18,7 @@ const useOrderList = (url) => {
         (async () => {
             setLoading(true);
             try {
-                const response = await http.get(url);
+                const response = await axios.get(url);
 
                 if (response.data.data) {
                     setOrders([...response.data.data]);

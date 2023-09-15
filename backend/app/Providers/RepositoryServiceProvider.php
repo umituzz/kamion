@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
+use App\Contracts\CurrencyRepositoryInterface;
 use App\Contracts\NotificationRepositoryInterface;
 use App\Contracts\OrderRepositoryInterface;
 use App\Contracts\OrderStatusRepositoryInterface;
 use App\Contracts\SettingRepositoryInterface;
 use App\Contracts\ShipperRepositoryInterface;
 use App\Contracts\UserRepositoryInterface;
+use App\Repositories\CurrencyRepository;
 use App\Repositories\NotificationRepository;
 use App\Repositories\OrderRepository;
 use App\Repositories\OrderStatusRepository;
@@ -41,5 +43,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(OrderStatusRepositoryInterface::class, OrderStatusRepository::class);
         $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
         $this->app->bind(NotificationRepositoryInterface::class, NotificationRepository::class);
+        $this->app->bind(CurrencyRepositoryInterface::class, CurrencyRepository::class);
     }
 }

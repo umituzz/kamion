@@ -24,24 +24,25 @@ class OrdersController extends BaseController
     {
         $data = $this->orderRepository->getApiCollection();
 
-        return $this->ok($data, __('Order List'), Response::HTTP_OK);
+        return $this->ok($data, __('Order List'), 200);
     }
 
     public function store(OrderRequest $request)
     {
         $order = $this->orderRepository->create([
-            'shipper_id' => auth()->id(),
+            'shipper_id' => 1 ?? auth()->id(),
             'load_type_id' => $request->input('load_type_id'),
             'currency_id' => $request->input('currency_id'),
             'commodity' => $request->input('commodity'),
             'departure_city_id' => $request->input('departure_city_id'),
             'arrival_city_id' => $request->input('arrival_city_id'),
-            'order_status_id' => $request->input('order_status_id'),
+            'order_status_id' => 1 ?? $request->input('order_status_id'),
         ]);
+
         $this->orderRepository->loadRelationships($order);
 
         $data = new OrderResource($order);
 
-        return $this->ok($data, __('Order Created'), Response::HTTP_CREATED);
+        return $this->ok($data, __('Order Created'), 201);
     }
 }

@@ -1,13 +1,11 @@
 import {Navbar, Container} from "react-bootstrap";
-import {useSelector} from "react-redux";
 
 const Footer = () => {
-    const {company, date, footerMessage} = useSelector(state => state.site);
-
     return (
         <Navbar fixed="bottom" bg="light" variant="light" className="mt-2 py-3">
             <Container className="text-center d-block">
-                <span className="text-muted">© {date} {company} {footerMessage}</span>
+                test
+                <span className="text-muted">© 2023 Kamion All Right Reserved.</span>
             </Container>
         </Navbar>
     );

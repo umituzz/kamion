@@ -43,6 +43,7 @@ const AuthProvider = ({children}) => {
             const response = await http.post("/register", registerData);
             setCurrentUser(response.data);
             localStorage.setItem("userLoginData", JSON.stringify(response.data));
+            localStorage.setItem("token", JSON.stringify(response.data.token));
         } catch (error) {
             if (error.response.status === 422) {
                 setVError(error.response.data.errors);
@@ -61,6 +62,7 @@ const AuthProvider = ({children}) => {
             if (response.data.status === 200) {
                 setCurrentUser(response.data);
                 localStorage.setItem("userLoginData", JSON.stringify(response.data));
+                localStorage.setItem("token", JSON.stringify(response.data.token));
             } else {
                 setErrorMessage(response.data.errors);
             }

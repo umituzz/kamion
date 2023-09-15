@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/{id}/edit', [OrdersController::class, 'edit'])->name('edit');
         Route::put('/{id}/update', [OrdersController::class, 'update'])->name('update');
         Route::get('/{id}/destroy', [OrdersController::class, 'destroy'])->name('destroy');
-//        Route::post('/search', [OrdersController::class, 'search'])->name('search');
+        Route::post('/search', [OrdersController::class, 'search'])->name('search');
     });
 });
 

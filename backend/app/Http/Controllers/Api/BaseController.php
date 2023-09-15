@@ -17,12 +17,13 @@ class BaseController extends Controller
      *
      * @param $data
      * @param $message
+     * @param $status
      * @return JsonResponse
      */
     public function ok($data, $message, $status): JsonResponse
     {
         $response = [
-            'status' => $status,
+            'statusCode' => $status,
             'message' => $message,
             'data' => $data
         ];

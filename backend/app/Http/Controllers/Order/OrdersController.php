@@ -6,7 +6,9 @@ use App\Contracts\OrderRepositoryInterface;
 use App\Enums\OrderStatusEnums;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderUpdateRequest;
+use App\Models\Order;
 use App\Services\RedisService;
+use Illuminate\Http\Request;
 
 /**
  * Class OrdersController
@@ -60,5 +62,14 @@ class OrdersController extends Controller
         $this->orderRepository->delete($id);
 
         return redirect()->back();
+    }
+
+    public function search(Request $request)
+    {
+        $orders = $this->orderRepository->search($request->input('search'));
+
+        return view('order.search')->with([
+            'orders' => $orders
+        ]);
     }
 }

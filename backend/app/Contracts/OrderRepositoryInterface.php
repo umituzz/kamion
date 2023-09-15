@@ -16,14 +16,10 @@ interface OrderRepositoryInterface
     public function getApiCollection();
 
     /**
-     * @param $order
-     * @return void
-     */
-    public function loadRelationships($order);
-
-    /**
      * @return AnonymousResourceCollection
      */
     public function listAll();
+
+    public function search($key);
 
 }

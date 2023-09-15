@@ -9,8 +9,13 @@ function Header() {
                 <NavLink to={"/"} className={"nav-link"}>
                     <Navbar.Brand>Logo</Navbar.Brand>
                 </NavLink>
+                <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
-                    <Nav className="me-auto my-2 my-lg-0" navbarScroll></Nav>
+                    <Nav className="me-auto my-2 my-lg-0" navbarScroll>
+                        <NavLink to={"/order"} className={"nav-link"}>
+                            Order
+                        </NavLink>
+                    </Nav>
                     <Account/>
                 </Navbar.Collapse>
             </Container>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Laravel\Scout\Searchable;
 
 /**
  * Class Order
@@ -10,6 +11,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Order extends BaseModel
 {
+    use Searchable;
+
+    /**
+     * @return array
+     */
+    public function toSearchableArray(): array
+    {
+        return [
+            'commodity' => '',
+            'load_types.name' => ''
+        ];
+    }
     protected $fillable = [
         'shipper_id',
         'load_type_id',

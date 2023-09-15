@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 /**
  * Class AuthController
@@ -43,6 +44,7 @@ class AuthController extends Controller
         return response()->json([
             'status' => Response::HTTP_OK,
             'user' => $resource,
+//            'token' => $shipper->createToken('userToken')->plainTextToken
             'token' => $shipper->createToken('userToken')->plainTextToken
         ]);
     }
@@ -61,6 +63,9 @@ class AuthController extends Controller
             ]);
         }
 
+        $user = Auth::guard('shipper')->user();
+        $token = JWTAuth::fromUser($user);
+
         $data = $this->shipperRepository->findBy('email', $request->input('email'));
 
         $user = new ShipperResource($data);
@@ -68,7 +73,7 @@ class AuthController extends Controller
         return response()->json([
             'status' => Response::HTTP_OK,
             'user' => $user,
-            'token' => $user->createToken('userToken')->plainTextToken
+            'token' => $token
         ]);
     }
 
