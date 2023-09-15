@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth:web'], function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
     Route::group(['prefix' => '/profile', 'as' => 'users.'], function () {
