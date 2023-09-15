@@ -3,15 +3,15 @@ import {createSlice} from "@reduxjs/toolkit";
 export const site = createSlice({
     name: 'site',
     initialState: {
-        company: '',
+        company: 'Kamion Inc.',
+        date: 2024,
+        footerMessage: 'All Rights Reserved.'
     },
     reducers: {
-        setCompany: state => {
-            state.company = 'Kamion';
-        },
+    //
     }
 });
 
-export const {setCompany} = site.actions;
+export const {} = site.actions;
 
 export default site.reducer;

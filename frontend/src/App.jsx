@@ -15,7 +15,6 @@ function App() {
         <div className="main">
             <AuthProvider>
                 <Header/>
-
                 <Routes>
                     <Route path="/*" element={<PrivateRoutes/>}>
                         <Route path="" element={<Home/>}/>
