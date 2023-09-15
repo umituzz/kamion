@@ -10,20 +10,24 @@ import { useNavigate } from "react-router-dom";
 const OrderForm = () => {
 
     const [currencies, setCurrencies] = useState([]);
+    const [loadTypes, setLoadTypes] = useState([]);
+    const [cities, setCities] = useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const data = useSelector(state => state.dataList.dataList);
 
     useEffect(() => {
-        dispatch(loadListAction('currencies', navigate()));
+        dispatch(loadListAction('initial', navigate()));
     }, [dispatch]);
 
     useEffect(() => {
         if (data.data) {
-            setCurrencies(data?.data)
+            setCurrencies(data?.data.currencies)
+            setLoadTypes(data?.data.loadTypes)
+            setCities(data?.data.cities)
         }
-    }, [data, setCurrencies]);
+    }, [data, setCurrencies, setLoadTypes, setCities]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -60,7 +64,14 @@ const OrderForm = () => {
                     <Form.Label className="text-center">
                         Load Type <span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Control type="text" placeholder="Enter Load Type" required min={3} />
+                    <Form.Select>
+                        {loadTypes?.map((loadType, index) => (
+                            <option key={index} value={loadType.id}>
+                                {loadType.name}
+                            </option>
+                        ))}
+                    </Form.Select>
+                    {/*<Form.Control type="text" placeholder="Enter Load Type" required min={3} />*/}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="currencyId">
                     <Form.Label className="text-center">
@@ -84,13 +95,25 @@ const OrderForm = () => {
                     <Form.Label>
                         Departure City <span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Control type="text" placeholder="Enter Departure City" required min={3} />
+                    <Form.Select>
+                        {cities?.map((city, index) => (
+                            <option key={index} value={city.id}>
+                                {city.name}
+                            </option>
+                        ))}
+                    </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="arrivalCity">
                     <Form.Label>
                         Arrival City <span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Control type="text" placeholder="Enter Arrival City" required min={3} />
+                    <Form.Select>
+                        {cities?.map((city, index) => (
+                            <option key={index} value={city.id}>
+                                {city.name}
+                            </option>
+                        ))}
+                    </Form.Select>
                 </Form.Group>
                 <Button variant="outline-primary" type="submit">
                     Send
