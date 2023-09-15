@@ -1,66 +1,99 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p>Kuruluma geçmeden önce lütfen sisteminizde composer,git, php ve docker uygulamalarının sorunsuz çalıştığına emin olunuz.</p>
+## Kurulum Aşamaları
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<p>
+İlk önce proeyi git ile çalışmak istediğimiz alana klonlayalım 
+
+```bash 
+git clone https://github.com/kahramanboyunegmez/kamion
+```
+
+daha sonra 
+```cd kamion```
+ile ilgili klasör içerisine geçip orada çalışmaya başlayabiliriz</p>
+
+```bash 
+composer install --ignore-platform-reqs
+cp .env.example. env
+php artisan key:generate
+```
+<p>
+
+<p>Horizon paketi Windows platformunda pcntl eklentisine ihtiyaç duyduğu için sisteminizde yok ise eğer --ignore-platform-reqs ile kurulum yapabilirsiniz.</p>
+<p>Sail komutunu çalıştırırken permission denied hatası alırsanız klasöre yetki vermelisiniz. chmod -R 777 refrigerator gibi, şu an full yetki siz yetkiyi kendinize göre ayarlayabilirsiniz.</p>
+
+```php artisan sail:install```
+ile mysql ve redis kurulumunu yapın, 0,3 girebilirsiniz
+daha sonrasında ```./vendor/bin/sail up``` ile konteynırları kaldırın, arka planda kaldırmak için -d kullanabilirsiniz 
+```./vendor/bin/sail up -d``` </p>
+<p>Daha sonrasında docker ps ile kurulumunu yaptığınız konteynırlarda bir sorun var mı yok mu kontrol edin. Var ise logları kontrol edin ve lütfen bilgisayarınız Docker ile herhangi bir sorunu olmadığını kontrol edin.</p>
+
+<p> Sail ile mysql kurulumu yapıldıktan sonra projenin ismi veritabanı olarak belirlenir. Ve kullanıcı ismi sail ve şifre de password olarak belirlenir otomatik olarak. 
+.env dosyasında DATABASE ile ilgili kısımda bunu görebilirsiniz
+Veritabanı ayarlamaları sorunsuz bir şekilde bittikten sonra veritabanındaki tabloları oluşturup verileri ekleyebiliriz. Bunun için;
+
+
+<p>
+
+```php artisan setup``` komutuyla veritabanını sıfırlayabilir ve de redis'e verileri ekleyebilirsiniz 
+</p>
+<p>
+
+```docker exec -it backend-laravel.test-1 bash``` ile laravel konteynır içerisine girip veritabanı ile ilgili işlemleri yapabiliriz.
+php artisan migrate ile tablolar oluşturulabilir ve daha sonrasında
+php artisan db:seed ile önceden hazırlanan veriler getirilebilir.
+kısayol: php artisan migrate:fresh --seed ile veritabanı sıfırlayıp verileri ekleyebiliriz tek komut ile
+Daha sonrasında bir veritabanı arayüzü ile ilgili verileri girerek bağlantı yapabiliriz. Sunucu localhost, port:3306 olarak belirlenir. Veritabanı adı ve diğer bilgiler zaten daha önceden ayarlanmıştı oradan bakıp girebilirsiniz.
 </p>
 
-## About Laravel
+<p>kök dizinde screenshots klasörü altında mysql altında Phpstorm ile mysql bağlantı kurulma işleminin ekran görüntülerini ekledim, oradan bakabilirsiniz ek not olarak</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p> .env dosyasında ilgili anahtarlar redis olarak belirlenmelidir.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```bash
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+</p>
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<p> Admin kullanıcı giriş bilgileri: email:admin@kamion.com password:123456789 </p>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<p>User kullanıcı giriş bilgileri: email:user@kamion.com password:123456789</p>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+<p>Zamanlanmış görevleri takip edebilmek için
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```php artisan schedule:work``` 
+komutu ile izlemeye alabiliriz</p>
+<p>Kuyrukta bekleyen görevleri takip edebilmek için 
 
-### Premium Partners
+```php artisan queue:work``` 
+komutu ile izlemeye alabiliriz</p>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<p>
+Gönderilen mailleri almak için mailtrap.io uygulamasının ücretsiz test uygulamasını kullanabiliriz. Bunun için .env dosyasındaki mail ile ilgili ayarlamaları yapmamız gerekmektedir.
+Mail kullanıcı adı ve şifresini girmeniz gerekmektedir. Ücretsiz hesap oluşturmak için https://mailtrap.io/ 
 
-## Contributing
+```bash
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_FROM_NAME="${APP_NAME}"
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="hello@example.com"
+ ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+</p>
 
-## Code of Conduct
+<p>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```php artisan horizon``` ile kuyruğa alınan işlemleri panel üzerinden görebilirsiniz, bu işlemi laravel konteynır içerisinde gerçekleştirmelisiniz.  
 
-## Security Vulnerabilities
+</p>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p>Zamanlanmış görevler her bir dakika olarak ayarlanmıştır bunun nedeni test aşamasında işlemleri hemen görebilmek içindir. Ama bunu değiştirebilirsiniz. Console/Kernel.php dosyasında değişiklik yapabilirsiniz.
+https://laravel.com/docs/10.x/scheduling#schedule-frequency-options sitesinde opsiyonlarınıza bakabilirsiniz.</p>
