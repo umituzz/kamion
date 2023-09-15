@@ -9,14 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 const OrderForm = () => {
 
-    const [formData, setFormData] = useState({
-        loadType: "",
-        commodity: "",
-        departureCity: "",
-        arrivalCity: "",
-        currencyId: "",
-    });
-
     const [currencies, setCurrencies] = useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -37,14 +29,12 @@ const OrderForm = () => {
         event.preventDefault();
 
         try {
-            // Collect data from form inputs
             const loadType = event.target.elements.loadType.value;
             const commodity = event.target.elements.commodity.value;
             const departureCity = event.target.elements.departureCity.value;
             const arrivalCity = event.target.elements.arrivalCity.value;
             const currencyId = event.target.elements.currencyId.value;
 
-            // Create an object to represent the order data
             const orderData = {
                 load_type_id: loadType,
                 commodity: commodity,
@@ -53,27 +43,9 @@ const OrderForm = () => {
                 currency_id: currencyId,
             };
 
-            // Make the POST request
-            const response = await CreateData("orders", orderData);
-
-            // Handle success or display a toast message
-            if (response.status === 201) {
-                toast.success("Order created successfully!");
-
-                setFormData({
-                    loadType: "",
-                    commodity: "",
-                    departureCity: "",
-                    arrivalCity: "",
-                    currencyId: "",
-                });
-
-            } else {
-                toast.error("Failed to create the order.");
-            }
+             await CreateData("orders", orderData);
 
         } catch (error) {
-            console.log(error);
             toast.error("An error occurred while creating the order.");
         }
     };
@@ -94,15 +66,9 @@ const OrderForm = () => {
                     <Form.Label className="text-center">
                         Currency <span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Select
-                        // aria-label="Select Currency"
-                        // name="currencyId"
-                        // required
-                        // value={selectedCurrency}
-                        // onChange={(e) => setSelectedCurrency(e.target.value)}
-                    >
+                    <Form.Select>
                         {currencies?.map((currency, index) => (
-                            <option key={currency.index} value={currency.id}>
+                            <option key={index} value={currency.id}>
                                 {currency.name}
                             </option>
                         ))}

@@ -7,6 +7,7 @@ export const loadListAction = (fetchUrl, query = null) => {
 
                 if (res.hasOwnProperty('statusCode') && res.statusCode === 200) {
                     dispatch({type: 'LOAD_DATA_LIST_SUCCESS', res});
+
                 } else if (res.hasOwnProperty('statusCode') && res.statusCode > 300) {
                     dispatch({type: 'LOAD_DATA_LIST_ERROR', res})
                     window.location.href = '/logout'

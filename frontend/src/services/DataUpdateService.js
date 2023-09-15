@@ -9,7 +9,7 @@ export const UpdateData = async (url, id, query = null) => {
         const token = "token";
         return http.putData(query, uri, token).then(data => {
             const status_code = data.status_code
-            console.log(query, uri);
+
             switch (status_code) {
                 case 200:
                     toast.success(data.data, {

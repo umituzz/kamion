@@ -8,9 +8,7 @@ export default class HttpService {
     url = this.base_custom_url
     postData = async (item, added_url, tokenId = "", contentType = "application/json") => {
         const token = await JSON.parse(localStorage.getItem(tokenId));
-
         const requestOptions = postRequestOptions(token, item, contentType);
-        console.log(item, requestOptions, added_url)
 
         return fetch(this.url + "/" + added_url, requestOptions).then(
             response => response.json());
