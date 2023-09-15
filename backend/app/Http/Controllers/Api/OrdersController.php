@@ -31,13 +31,13 @@ class OrdersController extends BaseController
     public function store(OrderRequest $request)
     {
         $order = $this->orderRepository->create([
-            'shipper_id' => 1 ?? auth()->id(),
+            'shipper_id' => auth()->id(),
             'load_type_id' => $request->input('load_type_id'),
             'currency_id' => $request->input('currency_id'),
             'commodity' => $request->input('commodity'),
             'departure_city_id' => $request->input('departure_city_id'),
             'arrival_city_id' => $request->input('arrival_city_id'),
-            'order_status_id' => 1 ?? $request->input('order_status_id'),
+            'order_status_id' => $request->input('order_status_id'),
         ]);
 
         $this->orderRepository->loadRelationships($order);
