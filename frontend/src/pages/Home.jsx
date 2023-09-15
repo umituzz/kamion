@@ -1,6 +1,5 @@
 import {Row, Container} from "react-bootstrap";
 import {useEffect, useState} from "react";
-import useOrderList from "../hooks/useOrderList";
 import Order from "../components/Order";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
