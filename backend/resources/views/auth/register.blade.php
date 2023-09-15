@@ -28,9 +28,13 @@
                                     @csrf
 
                                     <div class="form-group row">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <input name="name" type="text" class="form-control form-control-user" id="exampleFirstName"
-                                                   placeholder="{{ __('Full Name') }}">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input name="first_name" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                                   placeholder="{{ __('First Name') }}">
+                                        </div>
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input name="last_name" type="text" class="form-control form-control-user" id="exampleLastName"
+                                                   placeholder="{{ __('Last Name') }}">
                                         </div>
                                     </div>
                                     <div class="form-group">
