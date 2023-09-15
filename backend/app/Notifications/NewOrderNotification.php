@@ -11,8 +11,7 @@ use Illuminate\Notifications\Notification;
  * Class NewOrderNotification
  * @package App\Notifications
  */
-class NewOrderNotification extends Notification
-//    implements ShouldQueue
+class NewOrderNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 

@@ -15,8 +15,7 @@ use Illuminate\Mail\Mailables\Address;
  * Class NewOrderMail
  * @package App\Mail
  */
-class NewOrderMail extends Mailable
-//    implements ShouldQueue
+class NewOrderMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
