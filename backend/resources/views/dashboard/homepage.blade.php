@@ -20,7 +20,7 @@
     </div>
 
     <div class="row">
-        @can('Order Management')
+{{--        @can('Order Management')--}}
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
@@ -38,8 +38,8 @@
                     </div>
                 </div>
             </div>
-        @endcan
-        @can('Shipper Management')
+{{--        @endcan--}}
+{{--        @can('Shipper Management')--}}
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-        @endcan
+{{--        @endcan--}}
     </div>
 
 @endsection

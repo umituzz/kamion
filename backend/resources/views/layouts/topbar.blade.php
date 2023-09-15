@@ -32,9 +32,9 @@
             </div>
         </li>
 
-        @can('Notification Management')
+{{--        @can('Notification Management')--}}
             @include('layouts.notifications')
-        @endcan
+{{--        @endcan--}}
 
         <div class="topbar-divider d-none d-sm-block"></div>
 
