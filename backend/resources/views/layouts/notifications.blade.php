@@ -12,8 +12,8 @@
         <h6 class="dropdown-header">
             Alerts Center
         </h6>
-        @if(count(auth()->user()->notifications) > 0)
-            @forelse(auth()->user()->notifications->take(5) as $row)
+        @if(count($notifications = auth()->user()->notifications) > 0)
+            @forelse($notifications->take(5) as $row)
 
                 <a class="dropdown-item d-flex align-items-center" href="{{ route('notifications.show', $row['id']) }}"
                    @if(empty($row['read_at']))

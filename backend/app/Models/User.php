@@ -15,9 +15,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasRoles;
 
-    protected string $guard_name = 'api';
-
-
     /**
      * The attributes that are mass assignable.
      *
@@ -49,9 +46,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-    protected function getDefaultGuardName(): string
-    {
-        return 'web';
-    }
 }

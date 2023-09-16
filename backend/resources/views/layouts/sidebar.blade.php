@@ -7,7 +7,6 @@
         </div>
         <div class="sidebar-brand-text mx-3">Kamion</div>
     </a>
-
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
