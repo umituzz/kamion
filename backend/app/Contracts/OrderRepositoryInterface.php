@@ -15,10 +15,7 @@ interface OrderRepositoryInterface
      */
     public function getApiCollection();
 
-    /**
-     * @return AnonymousResourceCollection
-     */
-    public function listAll();
+    public function listQuery();
 
     public function search($key);
 

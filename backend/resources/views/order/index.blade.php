@@ -35,14 +35,15 @@
                     </thead>
                     <tbody>
                     @forelse($orders as $order)
+
                         <tr>
                             <td>{{ $order->id }}</td>
-                            <td>{{ $order->loadType->name }}</td>
-                            <td>{{ $order->currency->name }}</td>
+                            <td>{{ $order->load_type  }}</td>
+                            <td>{{ $order->currency }}</td>
                             <td>{{ $order->commodity }}</td>
-                            <td>{{ $order->departureCity->name }}</td>
-                            <td>{{ $order->arrivalCity->name }}</td>
-                            <td>{{ $order->status->name }}</td>
+                            <td>{{ $order->departure_city }}</td>
+                            <td>{{ $order->arrival_city }}</td>
+                            <td>{{ $order->status }}</td>
                             <td>{{ $order['created_at'] }}</td>
                             <td>
                                 <a href="{{ route('orders.edit', $order->id) }}"

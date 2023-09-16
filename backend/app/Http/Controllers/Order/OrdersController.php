@@ -30,7 +30,7 @@ class OrdersController extends Controller
 
     public function index()
     {
-        $orders = $this->orderRepository->listAll();
+        $orders = $this->orderRepository->listQuery();
 
         return view('order.index', [
             'orders' => $orders,
@@ -68,7 +68,7 @@ class OrdersController extends Controller
     {
         $orders = $this->orderRepository->search($request->input('search'));
 
-        return view('order.search')->with([
+        return view('order.index')->with([
             'orders' => $orders
         ]);
     }

@@ -35,12 +35,10 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         return OrderResource::collection($data);
     }
 
-    /**
-     * @return Builder[]|Collection
-     */
-    public function listAll()
+    public function listQuery()
     {
         return $this->order
+            ->search('')
             ->query(function ($builder) {
                 return $this->queryBuilder($builder);
             })
@@ -90,5 +88,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         ]);
 
         $builder->orderBy('orders.id', 'DESC');
+
+        return $builder;
     }
 }
