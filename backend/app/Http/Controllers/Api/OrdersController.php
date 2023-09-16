@@ -7,7 +7,7 @@ use App\Http\Requests\OrderRequest;
 use App\Http\Resources\OrderResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class OrdersController
@@ -31,21 +31,8 @@ class OrdersController extends BaseController
 
     public function store(OrderRequest $request)
     {
-//        $validator = Validator::make($request->all(), [
-//            'load_type_id' => ['required'],
-//            'currency_id' => ['required'],
-//            'commodity' => ['required'],
-//            'arrival_city_id' => ['required'],
-//            'departure_city_id' => ['required'],
-//        ]);
-//
-//        if ($validator->fails()) {
-//            return response()->json(['errors' => $validator->errors()], 422);
-//        }
-
         $order = $this->orderRepository->create([
-            'shipper_id' => 1,
-//            'shipper_id' => auth()->id(),
+            'shipper_id' => Auth::guard('api')->id(),
             'load_type_id' => $request->input('load_type_id'),
             'currency_id' => $request->input('currency_id'),
             'commodity' => $request->input('commodity'),
