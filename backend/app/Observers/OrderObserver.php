@@ -5,7 +5,6 @@ namespace App\Observers;
 use App\Contracts\UserRepositoryInterface;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
-use App\Models\User;
 use App\Notifications\NewOrderNotification;
 use Illuminate\Support\Facades\Notification;
 
