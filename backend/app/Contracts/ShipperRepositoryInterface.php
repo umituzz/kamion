@@ -8,5 +8,5 @@ namespace App\Contracts;
  */
 interface ShipperRepositoryInterface
 {
-
+    public function getAuthUser();
 }

@@ -26,6 +26,16 @@ class AuthController extends Controller
         $this->shipperRepository = $shipperRepository;
     }
 
+    public function user()
+    {
+        $user = $this->shipperRepository->getAuthUser();
+
+        return response()->json([
+            'statusCode' => Response::HTTP_OK,
+            'data' => $user,
+        ]);
+    }
+
     /**
      * @param RegisterRequest $request
      * @return JsonResponse
@@ -43,11 +53,12 @@ class AuthController extends Controller
         $resource = new ShipperResource($shipper);
 
         return response()->json([
-            'status' => Response::HTTP_OK,
+            'statusCode' => Response::HTTP_CREATED,
             'user' => $resource,
-            'token' => $token
+            'token' => $token,
         ]);
     }
+
 
     /**
      * @param LoginRequest $request
@@ -55,7 +66,8 @@ class AuthController extends Controller
      */
     public function login(LoginRequest $request)
     {
-        $attempt = Auth::guard('shipper')->attempt($request->only('email', 'password'));
+        $auth = Auth::guard('api');
+        $attempt = $auth->attempt($request->only('email', 'password'));
 
         if (!$attempt) {
             return response()->json([
@@ -63,11 +75,9 @@ class AuthController extends Controller
             ]);
         }
 
-        $user = Auth::guard('shipper')->user();
+        $user = $auth->user();
         $token = JWTAuth::fromUser($user);
-
         $data = $this->shipperRepository->findBy('email', $request->input('email'));
-
         $user = new ShipperResource($data);
 
         return response()->json([

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-Route::group(['middleware' => 'auth:web'], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
     Route::group(['prefix' => '/profile', 'as' => 'users.'], function () {
@@ -24,7 +24,6 @@ Route::group(['middleware' => 'auth:web'], function () {
 
     Route::group(['prefix' => '/orders', 'as' => 'orders.'], function () {
         Route::get('/', [OrdersController::class, 'index'])->name('index');
-
         Route::get('/{id}/edit', [OrdersController::class, 'edit'])->name('edit');
         Route::put('/{id}/update', [OrdersController::class, 'update'])->name('update');
         Route::get('/{id}/destroy', [OrdersController::class, 'destroy'])->name('destroy');

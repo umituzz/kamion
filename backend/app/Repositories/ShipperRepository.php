@@ -3,7 +3,9 @@
 namespace App\Repositories;
 
 use App\Contracts\ShipperRepositoryInterface;
+use App\Http\Resources\ShipperResource;
 use App\Models\Shipper;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class ShipperRepository
@@ -18,5 +20,12 @@ class ShipperRepository extends BaseRepository implements ShipperRepositoryInter
         parent::__construct($shipper);
 
         $this->shipper = $shipper;
+    }
+
+    public function getAuthUser()
+    {
+        $shipper = Auth::guard('api')->user();
+
+        return new ShipperResource($shipper);
     }
 }
