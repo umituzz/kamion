@@ -10,9 +10,8 @@ function Header() {
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-                        <NavLink to={"/order"} className={"nav-link"}>
-                            Order
-                        </NavLink>
+                        <NavLink to={"/orders"} className={"nav-link"}>Orders</NavLink>
+                        <NavLink to={"/orders/create"} className={"nav-link"}>Create Order</NavLink>
                     </Nav>
                     <Account/>
                 </Navbar.Collapse>

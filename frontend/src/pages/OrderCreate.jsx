@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadListAction } from '../stores/actions/DataListAction';
 import { useNavigate } from "react-router-dom";
 
-const OrderForm = () => {
+const OrderCreate = () => {
 
     const [currencies, setCurrencies] = useState([]);
     const [loadTypes, setLoadTypes] = useState([]);
@@ -71,7 +71,6 @@ const OrderForm = () => {
                             </option>
                         ))}
                     </Form.Select>
-                    {/*<Form.Control type="text" placeholder="Enter Load Type" required min={3} />*/}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="currencyId">
                     <Form.Label className="text-center">
@@ -123,4 +122,4 @@ const OrderForm = () => {
     );
 };
 
-export default OrderForm;
+export default OrderCreate;

@@ -5,7 +5,7 @@ const Wrapper = ({ children }) => {
         <Container>
             <Row className="mt-5">
                 <Col md={6}>
-                    <Image src={"images/background.svg"} alt="bg" className="img-fluid" />
+                    <Image src={"../images/background.svg"} alt="bg" className="img-fluid" />
                 </Col>
                 <Col md={6} className="container">
                     <Row className="justify-content-center">{children}</Row>

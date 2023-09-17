@@ -7,10 +7,11 @@ import Register from "./pages/Register";
 import PrivateRoutes from "./components/PrivateRoutes";
 import AuthProvider from "./contexts/AuthContext";
 import PublicRoutes from "./components/PublicRoutes";
-import OrderForm from "./pages/OrderForm";
+import OrderCreate from "./pages/OrderCreate";
 import Wrapper from "./components/Wrapper";
 import React from "react";
 import { ToastContainer } from 'react-toastify';
+import Order from "./pages/Order";
 
 function App() {
     return (
@@ -21,7 +22,8 @@ function App() {
                 <Routes>
                     <Route path="/*" element={<PrivateRoutes/>}>
                         <Route path="" element={<Home/>}/>
-                        <Route path="order" element={<Wrapper children={<OrderForm/>}/>}/>
+                        <Route path="orders" element={<Order/>}/>
+                        <Route path="orders/create" element={<Wrapper children={<OrderCreate/>}/>}/>
                     </Route>
                     <Route path="/*" element={<PublicRoutes/>}>
                         <Route path="login" element={<Wrapper children={<Login/>}/>}/>
