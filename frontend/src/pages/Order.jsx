@@ -41,8 +41,8 @@ const Order = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        {orders?.map((order) => {
-                            return (
+                        {orders?.length > 0 ? (
+                            orders.map((order) => (
                                 <tr key={order.id}>
                                     <td>{order.id}</td>
                                     <td>{order.loadType.name}</td>
@@ -53,8 +53,13 @@ const Order = () => {
                                     <td>{order.status}</td>
                                     <td>{order.created_at}</td>
                                 </tr>
-                            )
-                        })}
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="8">No Data</td>
+                            </tr>
+                        )}
+
                         </tbody>
                     </Table>
                 </Col>
