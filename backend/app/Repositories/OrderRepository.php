@@ -5,8 +5,6 @@ namespace App\Repositories;
 use App\Contracts\OrderRepositoryInterface;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**

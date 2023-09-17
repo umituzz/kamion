@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Contracts\OrderRepositoryInterface;
 use App\Http\Requests\OrderRequest;
-use App\Http\Resources\OrderResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -43,9 +42,7 @@ class OrdersController extends BaseController
 
         $this->orderRepository->loadRelationships($order);
 
-        $data = new OrderResource($order);
-
-        return $this->ok($data, __('Order Created'), Response::HTTP_CREATED);
+        return $this->ok([], __('Order Created'), Response::HTTP_CREATED);
     }
 
     public function search(Request $request)
