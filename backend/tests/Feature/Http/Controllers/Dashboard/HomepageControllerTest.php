@@ -11,6 +11,7 @@ use Tests\TestCase;
 /**
  * Class HomepageControllerTest
  * @package Tests\Feature\Http\Controllers\Dashboard
+ * @coversDefaultClass \App\Http\Controllers\Dashboard\HomepageController
  */
 class HomepageControllerTest extends TestCase
 {

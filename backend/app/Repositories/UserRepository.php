@@ -22,7 +22,8 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
     public function getAdmins()
     {
-        return $this->user->role('Admin')->get();
+//        return $this->user->role('Admin')->get();
+        return $this->user->get();
     }
 
     public function getAuthenticatedUser()

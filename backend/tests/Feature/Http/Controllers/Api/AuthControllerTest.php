@@ -10,6 +10,7 @@ use Tests\TestCase;
 /**
  * Class AuthControllerTest
  * @package Tests\Feature\Http\Controllers\Api
+ * @coversDefaultClass \App\Http\Controllers\Api\AuthController
  */
 class AuthControllerTest extends TestCase
 {
