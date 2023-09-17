@@ -30,6 +30,4 @@ class CityTest extends TestCase
         $this->assertEquals($country->id, $city->country_id);
         $this->assertEquals('country_id', $relation->getForeignKeyName());
     }
-
 }
-
