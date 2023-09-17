@@ -20,7 +20,7 @@ class CountryTest extends TestCase
     public function test_it_has_many_cities()
     {
         $country = Country::factory()->create();
-        $city = City::factory()->count(3)->create([
+        City::factory()->count(3)->create([
             'country_id' => $country->id
         ]);
 

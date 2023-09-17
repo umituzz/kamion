@@ -30,6 +30,7 @@ class Order extends BaseModel
             'orders.created_at' => '',
         ];
     }
+
     protected $fillable = [
         'shipper_id',
         'load_type_id',
