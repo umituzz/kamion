@@ -16,7 +16,6 @@ const Order = () => {
         dispatch(loadListAction('orders', navigate()));
     }, [dispatch]);
 
-
     useEffect(() => {
         if (data.data) {
             setOrders(data.data);
