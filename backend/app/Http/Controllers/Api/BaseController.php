@@ -42,7 +42,7 @@ class BaseController extends Controller
     public function error($message, array $errors = [], int $code = 404): JsonResponse
     {
         $response = [
-            'success' => false,
+            'statusCode' => $code,
             'message' => $message
         ];
 
