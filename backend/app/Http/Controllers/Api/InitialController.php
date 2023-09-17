@@ -38,6 +38,6 @@ class InitialController extends BaseController
             'cities' => $cities,
         ];
 
-        return $this->ok($data, __('Initial Data '), Response::HTTP_OK);
+        return $this->ok($data, __('Initial Data'), Response::HTTP_OK);
     }
 }
