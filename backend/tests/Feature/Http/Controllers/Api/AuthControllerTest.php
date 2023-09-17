@@ -7,6 +7,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+/**
+ * Class AuthControllerTest
+ * @package Tests\Feature\Http\Controllers\Api
+ */
 class AuthControllerTest extends TestCase
 {
     use RefreshDatabase, WithFaker;

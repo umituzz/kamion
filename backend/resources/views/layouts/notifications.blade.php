@@ -3,7 +3,7 @@
        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-bell fa-fw"></i>
         <span class="badge badge-danger badge-counter">
-            {{ count(auth()->user()->unreadNotifications) }}
+            {{ count(auth()->user()->unreadNotifications ?? []) }}
         </span>
     </a>
 
@@ -15,10 +15,11 @@
         @if(count($notifications = auth()->user()->notifications) > 0)
             @forelse($notifications->take(5) as $row)
 
-                <a class="dropdown-item d-flex align-items-center" href="{{ route('notifications.show', $row['id']) }}"
+                <a class="dropdown-item d-flex align-items-center"
+                   href="{{ route('notifications.show', $row['id']) }}"
                    @if(empty($row['read_at']))
-                    style="background-color: yellow"
-                   @endif
+                       style="background-color: yellow"
+                    @endif
                 >
                     <div class="mr-3">
                         <div class="icon-circle bg-primary">
