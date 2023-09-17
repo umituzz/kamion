@@ -85,7 +85,37 @@ class OrdersControllerTest extends TestCase
         $response->assertStatus(302);
     }
 
+    public function test_search_orders()
+    {
+        $user = User::factory()->create();
+        $search = '1500'; // commodity
 
+        $order = Order::factory()->create(['commodity' => 1500]);
+
+        $response = $this->actingAs($user)->post(route('orders.search', [
+            'search' => $search
+        ]));
+
+        $response->assertStatus(200)
+            ->assertViewIs('order.index')
+            ->assertViewHas('orders');
+        $this->assertEquals($order->commodity, $response->viewData('orders')[0]->commodity);
+    }
+
+    public function test_search_invalid_orders()
+    {
+        $user = User::factory()->create();
+        $search = 99999999; // commodity
+
+        $response = $this->actingAs($user)->post(route('orders.search', [
+            'search' => $search
+        ]));
+
+        $response->assertStatus(200)
+            ->assertViewIs('order.index')
+            ->assertViewHas('orders');
+        $this->assertCount(0, $response->viewData('orders'));
+    }
 
 
 }
