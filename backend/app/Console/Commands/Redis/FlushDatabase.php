@@ -25,5 +25,9 @@ class FlushDatabase extends Command
     public function handle()
     {
         $this->redisService->flushDB();
+
+        $this->info('Redis database flushed successfully');
+
+        return Command::SUCCESS;
     }
 }
