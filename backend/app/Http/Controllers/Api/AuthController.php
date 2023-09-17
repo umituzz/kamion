@@ -72,7 +72,7 @@ class AuthController extends Controller
         if (!$attempt) {
             return response()->json([
                 'errors' => __('The provided credentials are incorrect!'),
-            ]);
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         $user = $auth->user();
