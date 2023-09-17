@@ -97,3 +97,6 @@ MAIL_FROM_ADDRESS="hello@example.com"
 
 <p>Zamanlanmış görevler her bir dakika olarak ayarlanmıştır bunun nedeni test aşamasında işlemleri hemen görebilmek içindir. Ama bunu değiştirebilirsiniz. Console/Kernel.php dosyasında değişiklik yapabilirsiniz.
 https://laravel.com/docs/10.x/scheduling#schedule-frequency-options sitesinde opsiyonlarınıza bakabilirsiniz.</p>
+
+
+```php artisan test --coverage-html=coverge``` ile testleri çalıştırabilir ve de coverage oranlarını görüntüleyebilirsiniz. Bu komut coverage altında bir klasör oluşturacaktır ve oradaki kök dizinde index.html dosyasından tüm oranları görebilirsiniz.
