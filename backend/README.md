@@ -100,3 +100,18 @@ https://laravel.com/docs/10.x/scheduling#schedule-frequency-options sitesinde op
 
 
 ```php artisan test --coverage-html=coverge``` ile testleri çalıştırabilir ve de coverage oranlarını görüntüleyebilirsiniz. Bu komut coverage altında bir klasör oluşturacaktır ve oradaki kök dizinde index.html dosyasından tüm oranları görebilirsiniz.
+
+<p>
+Şöyle bir yetki sorunuyla karşılaşırsanız, docker konteynır içerisinde şu komutları çalıştırabilirsiniz 
+</p>
+<p>
+The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened in append mode: Failed to open stream: Permission denied The exception occurred while attempting to log: The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened in append mode: Failed to open stream: Permission denied
+</p>
+<p>
+
+``` 
+chmod -R 775 /var/www/html/storage/logs/
+chmod -R 775 /var/www/html/storage/framework/sessions/
+```
+
+</p>
